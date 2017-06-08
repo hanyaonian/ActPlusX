@@ -1,0 +1,100 @@
+/**index.wxss**/
+/*.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}*/
+view {
+  display: block;
+  /*width: 100%;*/
+  font-family:'Microsoft YaHei';
+  font-size: 32rpx;
+  color: hsl(0, 0%, 40%);
+}
+
+.container {
+  padding: 0;
+  background: hsl(0, 0%, 95%);
+}
+
+.action {
+  width: 100%;
+  background-color:hsl(224, 63%, 58%);
+  color:white;
+  font-size: 32rpx;
+}
+
+.action-term {
+  display: inline-block;
+  padding: 23rpx 0;
+	width: 50%;
+	text-align: center;
+}
+
+.activity-type {
+  width:100%;
+  background: white;
+}
+
+.type-row {
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
+}
+
+.divider {
+  border-bottom: 2rpx solid #ddd;
+  width: 80%;
+  margin: auto;
+}
+
+.type-term {
+  display: inline-block;
+  width: 25%;
+  /*border-bottom: 2rpx solid #ddd;*/
+  background-color: #fff;
+  text-align: center;
+}
+
+.type-term .typeImg {
+  display: block;
+  margin: auto;
+}
+
+.hot-line {
+  width:90%;
+  margin:1rem 0 0.5rem 1rem;
+  /*padding:1rem 0 0.5rem 3rem;*/
+  /*padding-left: 0;*/
+}
+
+.mark {
+  border-bottom: 32rpx solid hsl(224, 63%, 58%);
+  margin-right: 10rpx;
+  display: inline-block;
+  width: 10rpx;
+  /*vertical-align: middle;*/
+}
+
+.hot-activity .rowImg {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.caption text {
+  font-size: 30rpx;
+}

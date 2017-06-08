@@ -1,0 +1,105 @@
+.container {
+    background-color: white;
+}
+
+.module {
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
+    border-bottom: 2rpx solid #ddd;
+    width: 100%;
+}
+
+.banner {
+}
+
+.banner, .banner_img {
+    height: 410rpx;
+    width: 100%
+}
+
+.banner_text_box {
+    position: absolute;
+    width: 100%;
+    height: 410rpx;
+    top: 0;
+    background-color:hsla(0, 0%, 2%, 0.5);
+}
+
+.banner_text {
+    display: block;
+    margin-top: 170rpx;
+    text-align:center;
+    font-size: larger;
+    color: floralwhite;
+}
+
+.title {
+    display: block;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+}
+
+.details {
+    /*padding: 30rpx;*/
+    /*text-align: left;*/
+    line-height:2.0rem;
+}
+
+.row {
+    display: block;
+    padding-left: 30rpx;
+    padding-right: 40rpx;
+    font-size: 28rpx;
+}
+
+.details .name {
+    font-weight: bold;
+}
+
+.signed, .page-view {
+    display: inline-block;
+    width: 50%;
+}
+
+.signed {
+    text-align: left;
+}
+
+.page-view {
+    text-align: right;
+}
+
+.button-box {
+    width: 90%;
+    margin-top:65rpx;
+    margin-bottom:20rpx;
+
+}
+
+.button {
+    width:49%;
+    display:inline-block;
+    background-color:hsl(224, 63%, 58%);
+    padding:24rpx 0;
+    text-align:center;
+    border-radius:0.3rem;
+    color:white;
+}
+
+.button2 {
+    float: right;
+}
+
+.detail-text {
+    display:inline-block;
+    width:90%;
+    font-size: 28rpx;
+}
+
+.rowImg {
+    vertical-align:top;
+    margin-top:16rpx;
+}

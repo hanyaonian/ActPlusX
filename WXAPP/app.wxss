@@ -1,0 +1,69 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0;
+  background: hsl(0, 0%, 95%);
+} 
+
+view {
+  /*display: block;*/
+  /*width: 100%;*/
+  font-family:'Microsoft YaHei';
+  font-size: 32rpx;
+  color: hsl(0, 0%, 40%);
+}
+
+.hot-activity {
+  margin: 0 1rem 1rem;
+  padding: 10rpx;
+  position: relative;
+  box-shadow: 16rpx 16rpx 20rpx hsl(0, 0%, 67%);
+  background: white;
+}
+
+.bigImg {
+  width: 657rpx;
+  height: 298rpx;
+}
+
+.mask {
+  position: absolute;
+  top: 10rpx;
+  width: 657rpx;
+  height: 298rpx;
+  text-align: center;
+  background-color: hsla(0, 0%, 2%, 0.5);
+  color: hsl(0, 100%, 100%);
+}
+
+.mask .title {
+  margin: 84rpx 0 0.8rem;
+  display: block;
+  font-size: larger;
+}
+
+.mask .type {
+  border: 2rpx solid hsl(0, 100%, 100%);
+  display: inline-block;
+  border-radius: 10rpx;
+  width: 108rpx;
+  font-size: 88%;
+}
+
+.caption {
+  line-height: 1.8rem;
+  margin-left: 1.8rem;
+}
+
+.typeImg, .acticonImg, .rowImg {
+  height:50rpx;
+  width:50rpx;
+  display:inline-block;
+  vertical-align:middle;
+  margin-right: 10rpx;
+}

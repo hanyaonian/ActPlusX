@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="container">
+  <!--<view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>-->
+  <view class="action">
+    <block wx:for="{{action}}">
+      <navigator class="action-term" url="{{item.url}}">
+        <image class="acticonImg" src="{{item.imgSrc}}"></image>
+        <text>{{item.name}}</text>
+      </navigator>
+    </block>
+  </view>
+
+  <view class="activity-type">
+    <view class="type-row">
+      <block wx:for="{{activityType1}}">
+          <navigator class="type-term" url="{{item.url}}">
+            <image class="typeImg" src="{{item.imgSrc}}"></image>
+            <text>{{item.name}}</text>
+          </navigator>
+      </block>
+    </view>
+    <view class="divider"></view>
+    <view class="type-row">
+      <block wx:for="{{activityType2}}">
+          <navigator class="type-term" url="{{item.url}}">
+            <image class="typeImg" src="{{item.imgSrc}}"></image>
+            <text>{{item.name}}</text>
+          </navigator>
+      </block>
+    </view>
+  </view>
+
+  <view class="hot-line">
+    <view class="mark"></view>
+    <text>热门活动</text>
+  </view>
+
+  <view>
+    <block wx:for="{{hotActivity}}">
+      <navigator class="hot-activity" url="{{item.url}}">
+        <image class="bigImg" src="{{item.imgSrc}}" />
+        <view class="mask">
+          <text class="title">{{item.title}}</text>
+          <text class="type">{{item.type}}</text>
+        </view>
+        <view class="caption">
+          <view>
+            <image class="rowImg" src="../../img/icon/time.png"></image>
+            <text>{{item.time}}</text>
+          </view>
+          <view>
+            <image class="rowImg" src="../../img/icon/location.png"></image>
+            <text>{{item.position}}</text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

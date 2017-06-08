@@ -1,0 +1,31 @@
+<view class="container">
+  <swiper class="my-swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-color="white" indicator-active-color="#000000">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" height="460rpx" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view>
+    <block wx:for="{{hotActivity}}">
+      <navigator class="hot-activity" url="{{item.url}}">
+        <image class="bigImg" src="{{item.imgSrc}}" />
+        <view class="mask">
+          <text class="title">{{item.title}}</text>
+          <text class="type">{{item.type}}</text>
+        </view>
+        <view class="caption">
+          <view>
+            <image class="rowImg" src="../../img/icon/time.png"></image>
+            <text>{{item.time}}</text>
+          </view>
+          <view>
+            <image class="rowImg" src="../../img/icon/location.png"></image>
+            <text>{{item.position}}</text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/activity_lists/activity_lists",
+    "pages/activity_details/activity_details"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "hsl(224, 63%, 58%)",
+    "navigationBarTitleText": "活动plus",
+    "navigationBarTextStyle":"white"
+  }
+}
