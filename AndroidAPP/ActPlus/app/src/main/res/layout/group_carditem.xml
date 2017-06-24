@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#00000000"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false"
+        android:clickable="false"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/dp8"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/dp8"
+        android:layout_margin="@dimen/dp16"
+        android:id="@+id/group_card_view">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/group_pub_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="@dimen/dp16" />
+
+                <TextView
+                    android:id="@+id/group_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_toRightOf="@+id/group_pub_img"
+                    android:fontFamily="serif"
+                    android:text="这是一个活动标题"
+                    android:textColor="@color/text"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/group_pub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/group_title"
+                    android:layout_toRightOf="@+id/group_pub_img"
+                    android:text="hanyn发布于:"
+                    android:textColor="@color/text"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/group_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/group_title"
+                    android:layout_toEndOf="@+id/group_pub"
+                    android:layout_toRightOf="@+id/group_pub"
+                    android:text="2017年6月三日"
+                    android:textColor="@color/text"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/act_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_toRightOf="@id/group_time"
+                    android:layout_below="@+id/group_title"
+                    android:background="@color/colorPrimary"
+                    android:text="比赛"
+                    android:textColor="@color/text" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d7d7d7" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5">
+
+                <TextView
+                    android:id="@+id/group_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:text="fuckyou"
+                    android:textColor="@color/text" />
+
+                <TextView
+                    android:id="@+id/group_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/group_detail"
+                    android:layout_margin="@dimen/dp8"
+                    android:text="联系方式：weixin=xxxxx"
+                    android:textColor="@color/text" />
+            </RelativeLayout>
+        </LinearLayout>
+        >
+    </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/my_start"
+            android:icon="@drawable/start"
+            android:title="我的收藏" />
+        <item
+            android:id="@+id/my_group"
+            android:icon="@drawable/group"
+            android:title="我的组队" />
+    </group>
+
+    <item android:title="账户操作">
+        <menu>
+            <item
+                android:id="@+id/log_out"
+                android:icon="@drawable/ic_menu_send"
+                android:title="注销" />
+        </menu>
+    </item>
+
+</menu>

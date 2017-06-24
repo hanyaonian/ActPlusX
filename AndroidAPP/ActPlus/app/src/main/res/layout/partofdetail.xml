@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:showIn="@layout/fragment_actdetail"
+    android:layout_margin="@dimen/dp16">
+<LinearLayout
+    android:layout_margin="@dimen/dp5"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/act_time_icon"/>
+    <TextView
+        android:layout_gravity="center"
+        android:textSize="@dimen/dp16"
+        android:layout_width="wrap_content"
+        android:id="@+id/act_detail_time"
+        android:text="活动时间: "
+        android:layout_height="wrap_content" />
+</LinearLayout>
+<LinearLayout
+    android:layout_margin="@dimen/dp5"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/act_place_icon"/>
+    <TextView
+        android:layout_gravity="center"
+        android:textSize="@dimen/dp16"
+        android:id="@+id/act_detail_place"
+        android:layout_width="wrap_content"
+        android:text="活动地点: "
+        android:layout_height="wrap_content" />
+</LinearLayout>
+<LinearLayout
+    android:layout_margin="@dimen/dp5"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/act_object_icon"/>
+    <TextView
+        android:layout_gravity="center"
+        android:textSize="@dimen/dp16"
+        android:id="@+id/act_detail_actFor"
+        android:layout_width="wrap_content"
+        android:text="活动对象: "
+        android:layout_height="wrap_content" />
+</LinearLayout>
+<LinearLayout
+    android:layout_margin="@dimen/dp5"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/sing_up"/>
+    <TextView
+        android:layout_gravity="center"
+        android:textSize="@dimen/dp16"
+        android:id="@+id/act_detail_Join"
+        android:layout_width="wrap_content"
+        android:text="报名方式: "
+        android:layout_height="wrap_content" />
+</LinearLayout>
+<LinearLayout
+    android:layout_margin="@dimen/dp5"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/act_about_icon"/>
+    <TextView
+        android:layout_gravity="center"
+        android:textSize="@dimen/dp16"
+        android:id="@+id/act_detail_detail"
+        android:layout_width="wrap_content"
+        android:text="活动详情: "
+        android:layout_height="wrap_content" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/dp5"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/act_holder"/>
+    <TextView
+        android:layout_gravity="center"
+        android:textSize="@dimen/dp16"
+        android:id="@+id/act_detail_pub"
+        android:layout_width="wrap_content"
+        android:text="主办方: "
+        android:layout_height="wrap_content" />
+</LinearLayout>
+</LinearLayout>
