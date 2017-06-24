@@ -1,0 +1,25 @@
+<view class="container">
+    <view>
+        <image src="{{enrollSrc}}" class="rowImg"></image>
+        <text>报名</text>
+    </view>
+
+    <form bindsubmit="formSubmit">
+        <view>
+        <block wx:for="{{enrollInfo}}">
+            <view>
+                <image src="{{item.imgSrc}}" class="rowImg"/>
+                <text>{{item.name}}</text>
+                <text>*</text>
+            </view>
+            <view>
+                <input type="text" class="input-text" name="{{item.inputName}}" placeholder="{{item.placeholder}}" />
+            </view>
+        </block>
+        </view>
+
+        <view>
+            <button formType="submit">提交</button>
+        </view>
+    </form>
+</view>>

@@ -46,7 +46,7 @@ Page({
                   imgsrc = 'http://actplus.sysuactivity.com/imgBase/poster/'+data[i].posterName;
                 }
                 activity[i] = {
-                  url: '../activity_details/activity_details',
+                  url: '../activity_details/activity_details?actId='+data[i].actId,
                   imgSrc: imgsrc,
                   title: data[i].actName,
                   type: data[i].actType,
@@ -54,8 +54,11 @@ Page({
                   position: data[i].actLoc
                 }
               }
+              var nothing = '';
+              if (data.length == 0) nothing = '没有活动';
               that.setData({
-                hotActivity: activity
+                hotActivity: activity,
+                nothing: nothing
               })
           }
 

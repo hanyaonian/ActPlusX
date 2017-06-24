@@ -29,8 +29,8 @@ Page({
         pageViewNum: "5575",
         makeTeam: "我要组队",
         signUp: "我要报名",
-        buttonMakeTeam: "../logs/logs",
-        buttonSignUp: "../logs/logs"
+        buttonMakeTeam: "../activity_enroll/activity_enroll",
+        buttonSignUp: "../activity_enroll/activity_enroll"
     },
     onLoad:function(event) {
       var that = this; 
@@ -125,6 +125,20 @@ Page({
                 title: data.actName,
                 details: details,
                 qrSrc: 'http://actplus.sysuactivity.com/imgBase/qrImg/'+data.qrName
+              })
+          }
+
+      });
+      wx.request({
+          url: 'https://actplus.sysuactivity.com/api/actmeta?actId='+event.actId,
+          method: 'GET',
+          success:function(res) {
+              var data = res.data;
+              console.log(data);
+              that.setData({
+                pageViewNum: data.pageView,
+                signedNum: data.enrollPeoNum,
+                buttonSignUp: "../activity_enroll/activity_enroll?actId="+event.actId
               })
           }
 

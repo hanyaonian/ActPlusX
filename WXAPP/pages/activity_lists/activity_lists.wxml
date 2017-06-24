@@ -8,6 +8,10 @@
   </swiper>
 
   <view>
+    <text>{{nothing}}</text>
+  </view>
+
+  <view>
     <block wx:for="{{hotActivity}}">
       <navigator class="hot-activity" url="{{item.url}}">
         <image class="bigImg" src="{{item.imgSrc}}" />

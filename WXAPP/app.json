@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/activity_lists/activity_lists",
-    "pages/activity_details/activity_details"
+    "pages/activity_details/activity_details",
+    "pages/activity_enroll/activity_enroll"
   ],
   "window":{
     "backgroundTextStyle":"light",

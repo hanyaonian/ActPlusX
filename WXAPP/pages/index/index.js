@@ -38,44 +38,44 @@ Page({
     ],
     activityType1: [
       {
-        url: '../activity_lists/activity_lists',
+        url: '../activity_lists/activity_lists?actType=welfare',
         imgSrc: '../../img/icon/publicGood.jpg',
         name: '公益'
       },
       {
-        url: '../activity_lists/activity_lists',
+        url: '../activity_lists/activity_lists?actType=game',
         imgSrc: '../../img/icon/competition.png',
         name: '比赛'
       },
       {
-        url: '../activity_lists/activity_lists',
+        url: '../activity_lists/activity_lists?actType=outside',
         imgSrc: '../../img/icon/outside.jpg',
         name: '户外'
       },
       {
-        url: '../activity_lists/activity_lists',
+        url: '../activity_lists/activity_lists?actType=lecture',
         imgSrc: '../../img/icon/lecture.jpg',
         name: '讲座'
       }
     ],
     activityType2: [
       {
-        url: '../activity_lists/activity_lists',
+        url: '../activity_lists/activity_lists?actType=casual',
         imgSrc: '../../img/icon/relaxation.png',
         name: '休闲'
       },
       {
-        url: '../activity_lists/activity_lists',
+        url: '../activity_lists/activity_lists?actType=performance',
         imgSrc: '../../img/icon/show.png',
         name: '演出'
       },
       {
-        url: '../activity_lists/activity_lists',
+        url: '../activity_lists/activity_lists?actType=PE',
         imgSrc: '../../img/icon/sports.jpg',
         name: '体育'
       },
       {
-        url: '../activity_lists/activity_lists',
+        url: '../activity_lists/activity_lists?actType=allList',
         imgSrc: '../../img/icon/all.png',
         name: '全部'
       }
