@@ -1,6 +1,5 @@
 package com.example.dell.actplus;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,7 +25,16 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.bumptech.glide.Glide;
 
+import net.NetTools;
+
 import java.util.List;
+
+import entity.ActItem;
+import entity.UserInfo;
+import fragment.actdetail;
+import fragment.grouplist;
+import fragment.list_fragment;
+import fragment.personcenter;
 
 public class Index extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
