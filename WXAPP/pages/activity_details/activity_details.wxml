@@ -1,0 +1,50 @@
+<view class="container">
+    <view class="banner">
+        <image class="banner_img" src="{{bannerImgSrc}}"></image>
+        <view class="banner_text_box">
+            <text class="banner_text">{{banner}}</text>
+        </view>
+    </view>
+
+    <view class="module">
+        <text class="title">{{title}}</text>
+    </view>
+
+    <view class="details module">
+        <block wx:for="{{details}}">
+            <view class="row">
+                <image class="rowImg" src="{{item.imgSrc}}"></image>
+                <view class="detail-text">
+                    <text class="name">{{item.name}}：</text>
+                    <text class="value">{{item.value}}</text>
+                </view>
+            </view>
+        </block>
+        <view>
+         <image class="qrPic" src="{{qrSrc}}"></image>
+        </view>
+    </view>
+
+    <view class="module">
+        <view class="row">
+            <image class="rowImg" src="{{organizerImgSrc}}"/>
+            <text>{{organizerName}}</text>
+        </view>
+    </view>
+
+    <view class="module">
+        <view class="row">
+            <text class="signed">已报名({{signedNum}}人)</text>
+            <text class="page-view">浏览量({{pageViewNum}}人)</text>
+        </view>
+    </view>
+
+    <view class="button-box">
+        <navigator url="{{buttonMakeTeam}}" class="button1 button">
+            <text>{{makeTeam}}</text>
+        </navigator>
+        <navigator url="{{buttonSignUp}}" class="button2 button">
+            <text>{{signUp}}</text>
+        </navigator>
+    </view>
+</view>

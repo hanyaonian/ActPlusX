@@ -1,0 +1,19 @@
+.my-swiper {
+    width: 100%;
+    height: 460rpx;
+    margin-bottom:55rpx;
+}
+
+.slide-image {
+    width: 100%;
+    height:460rpx;
+}
+
+.hot-activity .rowImg {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.caption text {
+  font-size: 30rpx;
+}
