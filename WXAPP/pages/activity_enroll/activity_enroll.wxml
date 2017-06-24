@@ -19,7 +19,7 @@
         </view>
 
         <view>
-            <button formType="submit">提交</button>
+            <button formType="submit" class="weui_btn weui_btn_primary">提交</button>
         </view>
     </form>
 </view>>
