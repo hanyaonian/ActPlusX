@@ -1,0 +1,30 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    text-align: center;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.success {
+    margin-top: 30%;
+    margin-bottom: 3%;
+    width: 150px;
+    height: 150px;
+    color: #5064D7;
+}
+
+.btn {
+    margin-top: 50px;
+    background-color: #5074D7 !important;
+    color: white !important;
+    font-size: 16px !important;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+}

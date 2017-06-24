@@ -1,0 +1,12 @@
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5c6b393a5f903113&redirect_uri=http://youngdou.s1.natapp.cc/thirdLogin&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+
+https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx5c6b393a5f903113&secret=5027bedea59a8b6d463241cae55db5c2&code=041sL0qg12RaLx02cktg1rScqg1sL0ql&grant_type=authorization_code
+
+https://api.weixin.qq.com/sns/userinfo?access_token=xNCfC2fUJ9ywLvYqi6TbQcwqdWwTj7VCvEj01ay4kEfXmz6oE7vKj8kHRvQ8e1EIYhpR60jqmc7xRsKUS_Eflow67Nf9BPuo0VC0gnlocZA&openid=oAI9i1eGJ2ZE_UbX3wtdX702tK6w
+
+
+
+https://api.weibo.com/oauth2/authorize?client_id=447660609&response_type=code&scope=email&redirect_uri=http://youngdou.s1.natapp.cc/weiboLogin
+
+https://api.weibo.com/oauth2/access_token?client_id=447660609&client_secret=5943b373ce211a8353e44fbeead4e427&grant_type=authorization_code&redirect_uri=http://youngdou.s1.natapp.cc/&code=8744a5899925e8e98d4e8bfff41664f1
+

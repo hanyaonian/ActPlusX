@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>管理详情</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Material Design fonts
+    <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Roboto:300,400,500,700}" type="text/css">
+    <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet">-->
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+    <!-- Page style -->
+    <link th:href="@{css/manage_details.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{js/return_back.js}"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-fixed-top" role="navigation">
+            <a href="#" class="return-back"><img class="lazyload logo" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return.png}"></a>
+            <p class="navbar-text">管理详情</p>
+        </nav>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <p class="lead text-primary text-left col-xs-12" th:text="${act.actName}">定向越野|穿越中东</p>
+                        <p class="text-left col-xs-12" th:text="|发布于${#dates.format(actMeta.pubTime, 'yyyy年MM月dd日 HH:mm')}|">发布于2016年11月11日22:00</p>
+                    </div>
+                    <div class="row intro-divider"></div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/时间.png}">活动时间：<span th:text="${act.actTime}">11月11日</span></li>
+                        <li class="list-group-item"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/地点.png}">活动地点：<span th:text="${act.actLoc}">ss</span></li>
+                        <li class="list-group-item"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/活动对象.png}">活动对象：<span th:text="${act.actFor}">ss</span></li>
+                        <hr />
+                        <div class="row intro-divider"></div>
+                        <li class="list-group-item">报名统计</li>
+                        <div class="intro-divider"></div>
+                        <li class="list-group-item">已报名<span class="notice" th:text="${actMeta.enrollPeoNum}">66</span>人</li>
+                        <li class="list-group-item">今日新增报名<span class="notice" th:text="${actMeta.todayEnroll}">16</span>人</li>
+                        <div class="row intro-divider"></div>
+                        <li class="list-group-item">浏览统计</li>
+                        <div class="intro-divider"></div>
+                        <li class="list-group-item">总浏览数<span class="notice" th:text="${actMeta.pageView}">66</span>次</li>
+                        <li class="list-group-item">今日浏览数<span class="notice" th:text="${actMeta.todayView}">16</span>次</li>
+                        <div class="row intro-divider"></div>
+                    </ul>
+                </div>
+            </div>
+            <a th:href="@{/manage_out(actId=${ actMeta.actId })}"><button type="button" class="out btn btn-primary btn-lg">一键导出</button></a>
+            <button type="button" class="tip btn btn-primary btn-lg disabled">一键通知(会员专属)</button>
+        </div>
+
+    </div>
+
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+    <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+  $.material.init();
+    </script>
+
+</body>
+</html>

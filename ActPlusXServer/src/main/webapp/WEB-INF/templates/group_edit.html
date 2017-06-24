@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>组队编辑</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" th:href="@{css/Roboto.css}" type="text/css">
+    <link th:href="@{css/MaterialIcons.css}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Dropdown.js
+    <link th:href="@{//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css}" rel="stylesheet">-->
+    <!-- Page style -->
+    <link th:href="@{css/group_edit.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{js/group_edit.js}"></script>
+    <script th:src="@{js/return_back.js}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <a href="#" class="return-back"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return.png}"></a>
+        <p class="navbar-text">组队编辑</p>
+    </nav>
+    <div class="wrapper">
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModal2Label">发布失败</h4>
+                    </div>
+                    <div class="modal-body">
+                        输入有误，请检查。
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+        <form role="form" th:action="@{ /group_edit }" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <span class="invisible showTips" id="titleTip"><i class="material-icons">error</i><span class="warningTips">请输入4-40字</span></span>
+                <textarea name="title" id="title" maxlength="40" type="text" class="form-control" rows="3" placeholder="标题（必填），4-40字"></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="invisible showTips" id="contentTip"><i class="material-icons">error</i><span class="warningTips">请输入15-144字</span></span>
+                <textarea name="mainText" id="content" maxlength="144" class="form-control" rows="7" placeholder="正文（必填），15-144字"></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="invisible showTips" id="contactTip"><i class="material-icons">error</i><span class="warningTips">请输入4-40字</span></span>
+                <textarea name="contact" id="contact" maxlength="40" type="text" class="form-control" rows="3" placeholder="联系方式（必填），4-40字"></textarea>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p><span class="divider-dot"></span>标签选择</p>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="actType" value="体育"><span class="checkbox-material"><span class="check"></span></span><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/体育.jpg}">体育
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="actType" value="比赛"><span class="checkbox-material"><span class="check"></span></span><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/比赛.png}">比赛
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="actType" value="公益"><span class="checkbox-material"><span class="check"></span></span><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/公益.jpg}">公益
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="actType" value="户外"><span class="checkbox-material"><span class="check"></span></span><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/户外.jpg}">户外
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="actType" value="演出"><span class="checkbox-material"><span class="check"></span></span><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/演出.png}">演出
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="actType" value="讲座">
+                                <span class="checkbox-material"><span class="check"></span></span><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/讲座.jpg}">讲座
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="actType" value="休闲"><span class="checkbox-material"><span class="check"></span></span><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/休闲.png}">休闲
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="text" class="others form-control" placeholder="其他备注标签：" name="otherTag">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <a><button id="submitButton" type="button" class="sure-again btn btn-primary btn-lg btn-block">确认</button></a>
+            </div>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>确认发布此组队信息？</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="group-success manager btn btn-primary">确定</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </form>
+
+
+
+    </div>
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+
+    <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+        $.material.init();
+    </script>
+    <script>
+        $(function () { $("[data-toggle='tooltip']").tooltip("show"); });
+    </script>
+
+</body>
+</html>

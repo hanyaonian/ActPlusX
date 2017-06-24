@@ -1,0 +1,199 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/*-------顶部导航栏--------*/
+.navbar-text {
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+.navbar img {
+    width: 25px;
+    height: 25px;
+}
+
+.map {
+    position: absolute;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    top: 0;
+    right: 3%;
+}
+
+/*---------可移动导航栏-------*/
+.nav img {
+    width: 25px;
+    height: 25px;
+}
+
+.nav a {
+    text-align: center;
+    color: white;
+}
+
+.nav p {
+    margin-bottom: 0px;
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.nav {
+    padding-right: 0px;
+    background-color: #5074D7;
+    padding-top: 40px;
+}
+
+/*-------模态框---------*/
+.modal-dialog {
+    position: absolute;
+    left: 50% !important;
+    top: 50% !important;
+    width: 340px;
+    height: 302px;
+    transform: translateX(-53%) translateY(-50%) !important;
+}
+
+/*------------活动分类-------*/
+.activity-menu {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.activity-menu a {
+    text-align: center;
+}
+
+.activity-menu img {
+    width: 25px;
+    height: 25px;
+}
+
+/*---------热门活动----------*/
+.intro-divider {
+    width: auto;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 15px;
+}
+
+.divider-dot {
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    margin-right: 8px;
+    background-color: #5074D7;
+}
+
+.thumbnail {
+    position: relative;
+    box-shadow: 8px 8px 10px #aaaaaa;
+    margin-left: 6px;
+    margin-right: 7px;
+    word-break: break-word;
+}
+
+.thumbnail .mask {
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+    width: 97%;
+    height: 57.59%;
+
+    text-align: center;
+    /*line-height: 6;*/
+    background-color: rgba(5,5,5,0.5);
+    color: white;
+    font-size: larger;
+}
+
+.thumbnail img {
+    width: 337px;
+    height: 149px;
+}
+
+.mask .title {
+    margin-top: 42px;
+}
+
+.mask .type {
+    display: inline-block;
+    margin: 0 2px 0 2px;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 54px;
+    /*height: 28px;*/
+    /*margin: 0 auto;*/
+    font-size: 88%;
+}
+
+.center-thumbnail {
+    margin: 0 auto;
+}
+
+.activity-menu a, body {
+    color: #666666;
+}
+
+.hot-activity {
+    background-color: #F0F0F2;
+}
+
+.hot-activity > p {
+    margin: 0px;
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+
+.thumbnail .caption {
+    margin-left: 6%;
+    margin-top: 2%;
+    padding-bottom: 0px;
+}
+
+.sicon {
+    color: #5074D7;
+    padding-right: 5px;
+}
+
+.hot-act-details {
+    word-break: break-all;
+}
+
+.nav > li > a:hover {
+    background-color: #5074D7;
+}
+
+.nav-tabs > li > a:hover {
+    border-color: #5074D7;
+    border-bottom-color: white;
+}
+
+.nav > li > a:focus {
+    background-color: #5074D7;
+}
+
+.nav-tabs > li > a:focus {
+    border-color: #5074D7;
+    border-bottom-color: white;
+}
+
+.map span {
+    color: white;
+    padding-right: 16px;
+}

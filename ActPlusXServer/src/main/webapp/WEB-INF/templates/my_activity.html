@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>我的活动</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+    
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Page style -->
+    <link th:href="@{css/my_activity.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <a th:href="@{ /personal_center }"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return.png}"></a>
+        <p class="navbar-text">我的活动</p>
+    </nav>
+
+    <div class="container wrapper">
+        <div class="media">
+            <div class="pull-left">
+                <img class="media-object lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/自行车.png}" alt="媒体对象">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">自行车内环赛</h4>
+                <p>2016年11月2日12:00</p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="pull-left">
+                <img class="media-object lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/新生羽毛球.png}"
+                     alt="媒体对象">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">新生杯羽毛球比赛</h4>
+                <p>2016年11月2日12:00</p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="pull-left">
+                <img class="media-object lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/户外徒步.png}"
+                     alt="媒体对象">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">户外徒步</h4>
+                <p>2016年11月2日12:00</p>
+            </div>
+        </div>
+
+    </div>
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+    <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+  $.material.init();
+    </script>
+
+
+</body>
+</html>

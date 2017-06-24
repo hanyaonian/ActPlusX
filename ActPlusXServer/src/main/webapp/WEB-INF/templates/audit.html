@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>审核页面</title>
+    <meta charset="utf-8">
+    <script th:src="@{js/jquery-2.1.4.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{css/collection.css}" />
+  </head>
+  <body>
+
+    <div style="width:50%;margin:0 auto">
+      <p></p>
+
+        <h1  th:if="${ acts.size() == 0 }">无可以审核的活动</h1>
+
+
+        <div >
+
+            <!--<button type="button" class="copy button">编辑</button>-->
+            <!--<button type="submit" class="edit button">提交当前审核结果</button>-->
+
+            <form th:action="@{ /audit/modify(actId=${act.actId}) }" method="post" th:each="act : ${ acts }" th:if="${ acts.size() > 0 }" enctype="multipart/form-data">
+                <section  style="font-family: 微软雅黑;">
+
+                    <section class="" style="">
+
+
+                        </br>
+                        </br>
+
+                        <section class="activity-item" style="margin-top: 20px; padding-right: 5px; padding-left: 5px; line-height: 10px; border: 1px solid rgb(30, 155, 232); margin-bottom: -10px; box-sizing: border-box; text-align: center;margin-bottom: 70px;">
+                            <div class="up-button">
+                                <a th:href="@{ /audit/passOneAct(actId=${act.actId}) }"><button type="button">通过该活动</button></a>
+                                <button type="submit">确认修改该活动</button>
+                                <a th:href="@{ '/audit/deleteAuditingAct?actId='+${act.actId} }"><button type="button">直接删除该活动！</button></a>
+                            </div>
+                            <section style="color: inherit; padding: 0px; font-size: 16px; height: 8px; margin: -4px auto; width: 20%; text-align: center; box-sizing: border-box; background-color: rgb(254, 254, 254);">
+                                <section style="width: 8px; height: 8px; border-radius: 100%; line-height: 1; font-size: 18px; text-decoration: inherit; border-color: rgb(30, 155, 232); display: inline-block; color: rgb(255, 255, 255); float: left; box-sizing: border-box; background-color: rgb(30, 155, 232);"></section>
+                                <section style="width: 2.5em;height: 2.5em;border-radius: 50%;display: inline-block;line-height: 40px;margin-top: -15px;color: rgb(255, 255, 255);border-color: rgb(30, 155, 232);box-sizing: border-box;background-color: rgb(30, 155, 232);text-align: center;">
+                                    <strong th:text="${ acts.indexOf(act) + 1 }" class="autonum" style="color:inherit" data-original-title="" title=""> {{ index }}</strong>
+                                </section>
+                                <section style="width: 8px; height: 8px; border-radius: 100%; line-height: 1; font-size: 18px; text-decoration: inherit; border-color: rgb(30, 155, 232); display: inline-block; color: rgb(255, 255, 255); float: right; box-sizing: border-box; background-color: rgb(30, 155, 232);"></section>
+                            </section>
+                            <section style="padding: 15px 10px 30px; margin-top: 15px; box-sizing: border-box;">
+
+                                <!--活动 id-->
+                                <input style="display:none;" name="actId" th:value="${ act.actId }">
+                                <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong>活动名称：</strong><textarea th:text="${ act.actName }" name="actName" rows="3">{{ 第一activity.actName }}</textarea></span>
+                                </p>
+                                <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong>活动时间：</strong><textarea  rows="5" th:text="|${ act.actTime }|" name="actTime">活动时间 : 11月11日</textarea></span>
+                                </p>
+                                <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong>活动地点：</strong><textarea rows="7" th:text="${ act.actLoc }" name="actLoc">saasasa</textarea></span>
+                                </p>
+                                <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong style="color: inherit; font-size: 1em; text-align: center;">活动简介：</strong><span style="font-size: 13px; color: inherit; text-align: center;"><textarea rows="5" th:text="${ act.actIntru }" name="actIntru">saasasa</textarea></span></span>
+                                </p>
+                                <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong><span style="font-size: 13px; line-height: 28px;">活动对象：</span></strong><span style="font-size: 13px; line-height: 28px;"><textarea rows="5" th:text="${ act.actFor }" name="actFor">saasasa</textarea></span></span>
+                                </p>
+                                <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong style="color: inherit; text-align: center;">主办方：</strong><span style="font-size: 13px; text-align: center;"><textarea rows="5" th:text="${ act.actPub }" name="actPub">saasasa</textarea></span></span>
+                                </p>
+                                <p style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong>报名方式：</strong><span style="font-size: 13px; line-height: 28px;"><textarea rows="8" th:text="${ act.actJoin }" name="actJoin">saasasa</textarea></span></span>
+                                </p>
+                                <p style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong><span style="font-size: 13px; line-height: 28px;">报名截止日期：</span></strong><span style="font-size: 13px; line-height: 28px;"><input th:value="${#dates.format(act.actDDL, 'yyyy年MM月dd日 HH:mm') }" name="actDDL_Str"></span></span>
+                                </p>
+
+
+                                <p th:if="${ act.welTime != null && !act.welTime.equals('') }" style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;" >
+                                    <span style="font-size: 13px;"><strong style="line-height: 28px;">公益时：<span style="font-size: 13px; color:#1E9BE8;"><textarea rows="5" th:text="${act.welTime}" name="welTime"></textarea></span></strong></span>
+                                </p>
+
+                                <p th:if="${ act.PEChapter != null && act.PEChapter != '' }" style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong style="line-height: 28px;">体育章：<span style="font-size: 13px; color: #1E9BE8;"><textarea rows="5" th:text="${act.PEChapter}" name="PEChapter"></textarea></span></strong></span>
+                                </p>
+
+
+                                <p th:if="${ act.otherAw != null && act.otherAw != '' }"  style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong style="line-height: 28px;">其他奖励：<span style="font-size: 13px; color: #1E9BE8;"><textarea rows="5" th:text="${act.otherAw}" name="otherAw"></textarea></span></strong></span>
+                                </p>
+
+                                <p th:if="${ act.actDem != null && act.actDem != '' }"  style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                    <span style="font-size: 13px;"><strong style="line-height: 28px;">活动要求：<span style="font-size: 13px;"><textarea rows="7" th:text="${act.actDem}" name="actDem"></textarea></span></strong></span>
+                                </p>
+
+
+                                <p style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;">
+                                    <span style="font-size: 13px; line-height: 28px;">
+                                        <strong style="line-height: 25.6px;">
+                                            <span style="font-size: 13px; line-height: 23.4px;">
+                                                <strong>活动详情：</strong>
+                                            </span>
+                                        </strong>
+                                    </span>
+                                    <span style="font-size: 13px; line-height: 25.6px;">
+                                    <textarea rows="8" th:text="${ act.actDetail }" name="actDetail">saasasa</textarea></span>&nbsp;</span><br>
+                                </p>
+                                <br>
+
+                                <p style="margin-bottom:10px;">
+                                <span style="font-size: 13px; line-height: 28px;">
+                                <strong style="line-height: 25.6px;">
+                                    <span style="font-size: 13px; line-height: 23.4px;">
+                                        <strong>海报：</strong>
+                                    </span>
+                                </strong>
+                               </span>
+                                <div>
+                                    <img th:src="@{img/img/defaultPoster.jpg}" th:if="${ act.getPosterName() == null ||  act.getPosterName() == ''}" style="height:160px;text-align:center;">
+                                    <img th:src="@{'imgBase/poster/' + ${ act.posterName }}" th:if="${ act.getPosterName() != '' && act.getPosterName() != null}" style="height:160px;text-align:center;">
+
+                                </div>
+                                </p>
+
+                                <div th:if="${ act.qrName != null && act.qrName != '' && act.qrName != 'default.jpg'}" style="margin-bottom:10px;">
+                                    <strong style="font-size: 13px;">二维码：</strong>
+                                    <p><img
+                                            th:src="@{'imgBase/qrImg/' + ${ act.qrName }}"></p>
+                                </div>
+
+                            </section>
+                        </section>
+
+                        <div>
+                            <!-- <h2>是否通过此活动</h2> -->
+                            <!-- <input type="checkbox" name="actId" th:value="${ act.actId }"> -->
+                            <!--<input type="radio" name="checkAct1" class="radio"/><span>不通过</span>-->
+                            <!--<input type="text" class="reason" maxlength="15" placeholder="（原因)：少于15字">-->
+                            <!-- <button type="submit" class="edit button">确认提交当前审核结果</button> -->
+                        </div>
+
+
+                    </section>
+                </section>
+            </form>
+
+
+
+
+        </div>
+    </div>
+
+
+<script>
+    <!--$(".no-passed").click(function() {-->
+        <!--$(this).siblings(".reason").removeClass("dispear");-->
+        <!--$(this).siblings(".passed").addClass("dispear");-->
+    <!--});-->
+    <!--$(".passed").click(function() {-->
+        <!--$(this).siblings(".reason").addClass("dispear");-->
+    <!--});-->
+    <!--var canBeEdit = false;-->
+    <!--var editButton = $('.copy');-->
+    <!--$("input").attr("readOnly", true);-->
+    <!--$("textarea").attr("readOnly", true);-->
+    <!--editButton.bind("click", function() {-->
+        <!--if (canBeEdit == false) {-->
+            <!--canBeEdit = true;-->
+            <!--editButton.html('确认后请点击上方提交');-->
+            <!--$("input").attr("readOnly", false);-->
+            <!--$("textarea").attr("readOnly", false);-->
+        <!--} else {-->
+            <!--canBeEdit = false;-->
+            <!--editButton.html('编辑');-->
+            <!--$("input").attr("readOnly", true);-->
+            <!--$("textarea").attr("readOnly", true);-->
+            <!--//  传送整个页面或者修改的活动数据给后端-->
+        <!--}-->
+    <!--})-->
+</script>
+  </body>
+</html>

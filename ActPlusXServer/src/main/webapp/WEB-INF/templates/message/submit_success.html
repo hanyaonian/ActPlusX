@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>提交成功</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+   <!--  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.css}" rel="stylesheet">
+
+    <!-- Dropdown.js
+    <link th:href="@{//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css}" rel="stylesheet">-->
+    <!-- Page style -->
+    <link th:href="@{css/submit_success.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+    </head>
+    <body>
+        <!-- <div class="glyphicon glyphicon-ok-sign"></div> -->
+        <img th:src="@{img/icon/成功.png}" class="success">
+        <h2 class="msg_title">提交成功</h2>
+        <p>感谢支持，我们将予以回复</p>
+        <div class="container">
+            <a th:href="@{personal_center.html}"><button type="button" class="btn btn-primary btn-lg btn-block">确定</button></a>
+        </div>
+
+        <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+  $.material.init();
+    </script>
+
+    <!-- Sliders
+    <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js}"></script>
+
+     Dropdown.js
+    <script th:src="@{https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js}"></script>
+    <script>
+      $("#dropdown-menu select").dropdown();
+    </script>-->
+    </body>
+</html>

@@ -1,0 +1,156 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-text {
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+.navbar .glyphicon {
+    font-size: 25px;
+    color: white;
+}
+
+.wrapper {
+    padding-top: 51px;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.panel {
+    box-shadow: 8px 5px 10px #aaaaaa;
+    word-break: break-word;
+}
+
+.panel-heading {
+    background-color: white !important;
+}
+
+.panel-heading h1 {
+    font-size: 18px;
+}
+
+.panel-heading p {
+    font-size: 13px;
+    margin-bottom: 0px;
+    color: #A9A5A9;
+}
+
+.panel-heading img {
+    height: 38px;
+    width: 38px;
+    display: block;
+    float: left;
+    margin-right: 7%;
+    margin-bottom: 14px;
+    border-radius: 50%;
+}
+
+.panel-body p {
+    margin: 8px 0 3px 0;
+    text-align: center;
+}
+
+.container {
+    background-color: white;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #5074D7;
+}
+
+.list-group-item {
+    padding: 6px;
+}
+
+.glyphicon {
+    color: #5074D7;
+}
+
+.list-group-item :first-child {
+    margin-right: 8px;
+}
+
+.intro-divider {
+    width: auto;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 7px;
+}
+
+.btn {
+    background-color: #5074D7 !important;
+    color: white !important;
+    font-size: 16px !important;
+}
+
+.text-primary {
+    font-size: 17px !important;
+    color: black !important;
+    font-weight: bold !important;
+}
+
+.list-group-item {
+    padding: 6px;
+}
+
+.glyphicon {
+    color: #5074D7;
+}
+
+.list-group-item :first-child {
+    margin-right: 8px;
+}
+
+.list-group-item .item {
+    font-weight: bold;
+}
+
+.list-group-item span {
+    font-size: 14px;
+}
+
+.list-group-item p {
+    line-height: 1.5;
+    margin-bottom: 0px;
+    font-size: 14px;
+    padding-left: 21px;
+}
+
+.list-group-item .picture {
+    margin: 0 auto;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.span-right {
+    display: inline-block;
+    position: absolute !important;
+    right: 0 !important;
+}
+
+.panel-body span {
+    word-break: break-word;
+}

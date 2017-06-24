@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>我的消息</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Page style -->
+    <link th:href="@{css/my_message.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <a th:href="@{ /personal_center }"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return.png}"></a>
+        <p class="navbar-text">我的消息</p>
+    </nav>
+    <div class="container wrapper">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>SDCS学术发展中心</h1>
+                <p>2016年11月25日22:00</p>
+            </div>
+            <div class="panel-body">
+                小T同学，你好！感谢您对我们的支持，恭喜你报名成功，近期我们会通知您面试的具体时间和地点，预祝面试顺利！
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>SDCS学术发展中心</h1>
+                <p>2016年11月25日22:00</p>
+            </div>
+            <div class="panel-body">
+                小T同学，你好！感谢您对我们的支持，恭喜你报名成功，近期我们会通知您面试的具体时间和地点，预祝面试顺利！
+            </div>
+        </div>
+    </div>
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+
+    <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+  $.material.init();
+    </script>
+
+</body>
+</html>

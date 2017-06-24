@@ -1,0 +1,101 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: white;
+    padding: 0px;
+    color: #666666;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.container {
+    word-break: break-word !important;
+}
+
+.navbar-text {
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+.navbar .glyphicon {
+    font-size: 25px;
+    color: white;
+}
+
+.wrapper {
+    padding-top: 64px;
+}
+
+.logo {
+    width: 25px;
+    height: 25px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    background-color: #5074D7;
+}
+
+.list-group-item {
+    padding: 6px;
+}
+
+.glyphicon {
+    color: #5074D7;
+}
+
+.list-group-item :first-child {
+    margin-right: 8px;
+}
+
+.intro-divider {
+    width: auto;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 7px;
+}
+
+.notice {
+    color: #FF76A5;
+    padding: 0 5px;
+    margin: 0 !important;
+}
+
+.btn {
+    color: white !important;
+    font-size: 16px !important;
+    width: 49% !important;
+    margin-top: 25px !important;
+}
+.btn-large {
+    color: white !important;
+    font-size: 16px !important;
+    width: 100% !important;
+    margin-top: 25px !important;
+}
+
+.out {
+    background-color: #FF6091 !important;
+}
+
+.tip {
+    background-color: #5074D7 !important;
+}
+
+.list-group-item span {
+    word-break: break-word;
+    line-height: 1.5;
+}

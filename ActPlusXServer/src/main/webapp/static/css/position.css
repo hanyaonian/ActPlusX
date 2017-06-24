@@ -1,0 +1,55 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-text {
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+.navbar .glyphicon {
+    font-size: 25px;
+    color: white;
+}
+
+.wrapper {
+    padding-top: 49px;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.picture {
+    padding-bottom: 20px;
+}
+
+.picture img {
+    height: 205px;
+}
+
+button {
+    background-color: #5074D7;
+}
+
+.intro-divider {
+    width: 280px;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 15px;
+}

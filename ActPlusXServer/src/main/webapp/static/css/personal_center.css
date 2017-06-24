@@ -1,0 +1,88 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-text {
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+/*.navbar .glyphicon {
+    font-size: 25px;
+    color: white;
+}*/
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.list-group .icon {
+    margin-right: 1rem !important;
+}
+
+.wrapper {
+    margin-top: 49px;
+}
+
+.picture {
+    padding-bottom: 20px;
+}
+
+.picture img {
+    height: 205px;
+}
+
+button {
+    background-color: #5074D7;
+}
+
+.media {
+    background-color: white;
+    border: 1px solid #BBBBBB;
+    padding: 9px;
+    width: 100%;
+    height: auto;
+}
+
+.media img {
+    width: 100px;
+    height: 75px;
+    margin-right: 15px;
+}
+
+.media-body {
+    padding-top: 10px;
+}
+
+.panel {
+    border-width: 0px !important;
+}
+
+.list-group {
+    background-color: #F0F0F2;
+}
+
+.list-group-item {
+    background-color: white;
+    margin-top: 8px;
+}
+#logout {
+    margin: 0 auto;
+    color: red;
+}

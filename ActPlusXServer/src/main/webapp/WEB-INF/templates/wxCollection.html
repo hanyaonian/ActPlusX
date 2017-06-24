@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>中大活动</title>
+    <meta charset="utf-8">
+    <script th:src="@{ /js/jquery-2.1.4.js }"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/collection.css}" />
+    <script th:src="@{ /js/manage.js }"></script>
+    <script th:src="@{/js/jquery.zeroclipboard.min.js}"></script>
+   <script>
+     jQuery(document).ready(function($) {
+     $("body")
+         .on("copy", ".copy-button", function(/* ClipboardEvent */ e) {
+            e.clipboardData.clearData();
+	        e.clipboardData.setData("text/plain", $(this).data("zclip-text"));
+            e.preventDefault();
+	          });
+	  });
+    </script>
+</head>
+<body>
+
+<button class="copy button">复制</button>
+
+<button class="east button"><a th:href="@{ wxCollection?schoolId=0 }">东校区</a></button>
+<button class="south button"><a th:href="@{ wxCollection?schoolId=1 }">南校区</a></button>
+<button class="north button"><a th:href="@{ wxCollection?schoolId=2 }">北校区</a></button>
+<button class="zhuhai button"><a th:href="@{ wxCollection?schoolId=3 }">珠海校区</a></button>
+
+<button class="edit edit-button button">编辑</button>
+
+<div style="width:50%;margin:0 auto">
+    <p></p>
+    <section style="font-family: 微软雅黑;">
+        <section class="" style="">
+            <!-- 网页头部 -->
+            <!-- 利用header.html里面的模板 -->
+            <div>
+                <section style="margin-top: 10px; margin-right: 10px; margin-left: 15px; padding: 16px; max-width: 100%; white-space: normal; widows: 1; -webkit-print-color-adjust: exact; font-family: Helvetica, arial, sans-serif; font-size: 14px; border-width: 1px; border-style: dashed; border-color: rgb(100, 100, 100); border-radius: 10px; text-align: center; background-color: rgb(255, 255, 255); box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="color: rgb(62, 62, 62); max-width: 100%; min-height: 1em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                        <strong style="font-size: 18px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">
+                <span style="max-width: 100%; -webkit-print-color-adjust: exact; line-height: 3.4; color: rgb(30, 155, 232); box-sizing: border-box !important; word-wrap: break-word !important;">今日活动
+                </span>
+                        </strong>
+                        <br>
+                    </p>
+                    <!-- 今日各个类型重要活动 -->
+                    <!-- 利用activityList.html模板 -->
+                    <fieldset style="color: rgb(62, 62, 62); margin-top: 20px; margin-bottom: 20px; max-width: 100%; box-sizing: border-box; min-width: 0px; -webkit-print-color-adjust: exact; border-width: 0px; border-style: initial; border-color: initial; word-wrap: break-word !important;">
+                    </fieldset>
+                    <fieldset style="margin-top: 20px; margin-bottom: 20px; max-width: 100%; box-sizing: border-box; min-width: 0px; -webkit-print-color-adjust: exact; border-width: 0px; border-style: initial; border-color: initial; word-wrap: break-word !important;">
+                        <section th:each="oneTypeacts : ${ actsCollection }" th:if="${ oneTypeacts.size() > 0 }" style="max-width: 100%; box-sizing: border-box; -webkit-print-color-adjust: exact; border-radius: 0px 5px 5px 0px; text-align: inherit; text-decoration: inherit; background-color: rgb(244, 244, 244); word-wrap: break-word !important;">
+                            <p style="color: rgb(62, 62, 62); max-width: 100%; min-height: 1em; text-indent: 0em; text-align: left; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                <strong style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">
+                      <span style="max-width: 100%; font-size: 16px; box-sizing: border-box !important; word-wrap: break-word !important;">
+                        <span  style="max-width: 100%; color: rgb(255, 255, 255); background-color: rgb(30, 155, 232); box-sizing: border-box !important; word-wrap: break-word !important;">&nbsp; &nbsp; <span th:text="|  ${ oneTypeacts.get(0).getActType() }  |"></span>
+                        </span>
+                      </span>
+                                </strong>
+                                <span style="max-width: 100%; font-size: 16px; box-sizing: border-box !important; word-wrap: break-word !important;">
+                      <span style="max-width: 100%; color: rgb(255, 255, 255); background-color: rgb(30, 155, 232); box-sizing: border-box !important; word-wrap: break-word !important;">&nbsp; &nbsp;&nbsp;
+                      </span>
+                    </span>
+                                <br style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">
+                            </p>
+                            <p style="color: rgb(62, 62, 62); max-width: 100%; min-height: 1em; text-indent: 0em; text-align: left; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                <br style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">
+                            </p>
+                            <ol class="list-paddingleft-2" style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                <li th:each="act : ${ oneTypeacts }">
+                                    <p style="max-width: 100%; min-height: 1em; text-align: left; box-sizing: border-box !important; word-wrap: break-word !important;">
+                        <span th:text="${ act.actName }"  style="color:#595959">{{活动1}}
+                        </span>
+                                    </p>
+                                </li>
+                            </ol>
+                        </section>
+                    </fieldset>
+                </section>
+
+            </div>
+
+
+            <!-- {% module Header() %} -->
+
+            <div th:each="oneTypeacts : ${ actsCollection }" th:if="${ oneTypeacts.size() > 0 }" >
+                <!-- for 各个校区 -->
+                <!-- 利用school.html里面的模板 -->
+                <section data-role="paragraph" class="school-title" data-color="rgb(33, 33, 34)" data-custom="rgb(33, 33, 34)" style="max-width: 100%; box-sizing: border-box; color: rgb(62, 62, 62); font-size: 16px; line-height: 25.6px; white-space: normal; widows: 1; font-family: 微软雅黑; border-width: 0px; border-style: none; border-color: initial; background-color: rgb(255, 255, 255); word-wrap: break-word !important;">
+                    <section class="" data-tools="135编辑器" data-id="82336" style="max-width: 100%; box-sizing: border-box; border-width: 0px; border-style: none; border-color: initial; word-wrap: break-word !important;">
+                        <section style="margin: 5px; max-width: 100%; box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; text-align: center; word-wrap: break-word !important;">
+                            <section style="max-width: 100%; display: inline-block; color: inherit; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                <section style="margin: 5px; max-width: 100%; height: 1.5em; color: inherit; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                    <section style="max-width: 100%; box-sizing: border-box; display: inline-block; height: 24px; width: 1.5em; float: left; border-top: 0.4em solid rgb(198, 198, 199); border-right-color: rgb(198, 198, 199); border-bottom-color: rgb(198, 198, 199); border-left: 0.4em solid rgb(198, 198, 199); color: inherit; word-wrap: break-word !important;">
+                                    </section>
+                                    <section style="max-width: 100%; box-sizing: border-box; display: inline-block; color: rgb(70, 70, 72); clear: both; border-color: rgb(198, 198, 199); word-wrap: break-word !important;">
+                                    </section>
+                                </section>
+                                <section style="margin: -1em 5px; padding: 10px 30px; max-width: 100%; box-sizing: border-box; word-wrap: break-word !important; color: inherit; display: inline-block;">
+                                    <section style="max-width: 100%; color: rgb(51, 51, 51); word-break: break-all; display: inline-block; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                        <p style="max-width: 100%; min-height: 1em; font-size: 20px; line-height: 28px; box-sizing: border-box !important; word-wrap: break-word !important;">
+              <span style="max-width: 100%; font-size: 24px; background-color: rgb(30, 155, 232); box-sizing: border-box !important; word-wrap: break-word !important;">
+              <strong style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">
+              <span style="max-width: 100%; color: rgb(255, 255, 255); box-sizing: border-box !important; word-wrap: break-word !important;" >
+                &nbsp; &nbsp; &nbsp; <span th:text="|   ${ oneTypeacts.get(0).getActType() }   |"></span> &nbsp; &nbsp; &nbsp;</span>
+            </strong>
+            </span>
+                                        </p>
+                                    </section>
+                                </section>
+                                <section style="max-width: 100%; height: 1.5em; color: inherit; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                    <section style="max-width: 100%; box-sizing: border-box; height: 24px; width: 1.5em; float: right; border-bottom: 0.4em solid rgb(198, 198, 199); border-top-color: rgb(198, 198, 199); border-right: 0.4em solid rgb(198, 198, 199); border-left-color: rgb(198, 198, 199); color: inherit; word-wrap: break-word !important;">
+                                    </section>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+
+
+                <!-- 校区的各个活动 -->
+
+                <div >
+                    <section th:each="act : ${ oneTypeacts }" class="activity-item" style="margin-top: 20px; padding-right: 5px; padding-left: 5px; line-height: 10px; border: 1px solid rgb(30, 155, 232); margin-bottom: -10px; box-sizing: border-box; text-align: center;margin-bottom: 70px;">
+                        <div class="dispear"><!-- <button class="edit">编辑</button> --><a th:href="@{ '/admin/deleteAct?actId='+${act.actId} }"><button type="button" class="delete">删除</button></a><button class="upmove">上移</button><button class="downmove">下移</button></div>
+                        <section style="color: inherit; padding: 0px; font-size: 16px; height: 8px; margin: -4px auto; width: 20%; text-align: center; box-sizing: border-box; background-color: rgb(254, 254, 254);">
+                            <section style="width: 8px; height: 8px; border-radius: 100%; line-height: 1; font-size: 18px; text-decoration: inherit; border-color: rgb(30, 155, 232); display: inline-block; color: rgb(255, 255, 255); float: left; box-sizing: border-box; background-color: rgb(30, 155, 232);"></section>
+                            <section style="width: 2.5em;height: 2.5em;border-radius: 50%;display: inline-block;line-height: 40px;margin-top: -15px;color: rgb(255, 255, 255);border-color: rgb(30, 155, 232);box-sizing: border-box;background-color: rgb(30, 155, 232);text-align: center;">
+                                <strong th:text="${ oneTypeacts.indexOf(act) + 1 }" class="autonum" style="color:inherit" data-original-title="" title=""> {{ index }}</strong>
+                            </section>
+                            <section style="width: 8px; height: 8px; border-radius: 100%; line-height: 1; font-size: 18px; text-decoration: inherit; border-color: rgb(30, 155, 232); display: inline-block; color: rgb(255, 255, 255); float: right; box-sizing: border-box; background-color: rgb(30, 155, 232);"></section>
+                        </section>
+                        <section  style="padding: 15px 10px 30px; margin-top: 15px; box-sizing: border-box;">
+                            <p style="line-height: 1.75em;white-space: normal;text-align: center;">
+                                <span style="color: #1E9BE8;"><strong th:text="${ act.actName }">{{ 第一activity.actName }}</strong></span>
+                            </p>
+                            <p style="line-height: 1.75em; white-space: normal;">
+                                <br>
+                            </p>
+                            <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong>活动时间：</strong><span th:text="${act.actTime}"></span></span>
+                            </p>
+                            <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong>活动地点：</strong><span th:text="${act.actLoc}"></span></span>
+                            </p>
+                            <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong style="color: inherit; font-size: 1em; text-align: center;">活动简介：</strong><span style="font-size: 13px; color: inherit; text-align: center;"><span th:text="${act.actIntru}"></span></span></span>
+                            </p>
+                            <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong><span style="font-size: 13px; line-height: 28px;">活动对象：</span></strong><span style="font-size: 13px; line-height: 28px;"><span th:text="${act.actFor}"></span></span></span>
+                            </p>
+                            <p style="color: inherit; font-family: 微软雅黑; line-height: 2em; font-size: 14px; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong style="color: inherit; text-align: center;">主办方：</strong><span style="font-size: 13px; text-align: center;"><span th:text="${act.actPub}"></span></span></span>
+                            </p>
+                            <p style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong>报名方式：</strong><span style="font-size: 13px; line-height: 28px;"><span th:text="${act.actJoin}"></span></span></span>
+                            </p>
+                            <p style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong><span style="font-size: 13px; line-height: 28px;">报名截止日期：</span></strong><span style="font-size: 13px; line-height: 28px;"><span  th:text="|${#dates.format(act.actDDL, 'yyyy年MM月dd日 HH:mm') }|"></span></span></span>
+                            </p>
+
+
+                            <p th:if="${ act.welTime != null && !act.welTime.equals('') }" style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;" >
+                                <span style="font-size: 13px;"><strong style="line-height: 28px;">公益时：<span style="font-size: 13px; color:#1E9BE8;"><span th:text="${act.welTime}"></span></span></strong></span>
+                            </p>
+
+                            <p th:if="${ act.PEChapter != null && act.welTime != '' }" style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong style="line-height: 28px;">体育章：<span style="font-size: 13px; color: #1E9BE8;"><span th:text="${act.PEChapter}"></span></span></strong></span>
+                            </p>
+
+
+                            <p th:if="${ act.otherAw != null && act.otherAw != '' }"  style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong style="line-height: 28px;">其他奖励：<span style="font-size: 13px; color: #1E9BE8;"><span th:text="${act.otherAw}"></span></span></strong></span>
+                            </p>
+
+                            <p th:if="${ act.actDem != null && act.actDem != '' }"  style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><strong style="line-height: 28px;">活动要求：<span style="font-size: 13px;"><span th:text="${act.actDem}"></span></span></strong></span>
+                            </p>
+
+
+                            <p style="color: rgb(62, 62, 62); font-family: 微软雅黑; font-size: 1em; line-height: 2em; text-align: left; white-space: normal;">
+                                <span style="font-size: 13px;"><span style="font-size: 13px; line-height: 28px;"><strong style="line-height: 25.6px;"><span style="font-size: 13px; line-height: 23.4px;"><strong>活动详情：</strong></span></strong></span><span style="font-size: 13px; line-height: 25.6px;"><span th:text="${act.actDetail}"></span></span>&nbsp;</span><br>
+                            </p>
+                            <br>
+
+                            <p style="margin-bottom:10px;">
+                                <span style="font-size: 13px; line-height: 28px;">
+                                <strong style="line-height: 25.6px;">
+                                    <span style="font-size: 13px; line-height: 23.4px;">
+                                        <strong>海报：</strong>
+                                    </span>
+                                </strong>
+                               </span>
+                            <div>
+                                <img th:src="@{img/img/defaultPoster.jpg}" th:if="${ act.getPosterName() == null ||  act.getPosterName() == ''}" style="height:160px;text-align:center;">
+                                <img th:src="@{'imgBase/poster/' + ${ act.posterName }}" th:if="${ act.getPosterName() != '' && act.getPosterName() != null}" style="height:160px;text-align:center;">
+
+                            </div>
+                            </p>
+
+                            <div th:if="${ act.qrName != null && act.qrName != '' && act.qrName != 'default.jpg'}" style="margin-bottom:10px;">
+                                <strong style="font-size: 13px;">二维码：</strong>
+                                <p><img
+                                    th:src="@{'imgBase/qrImg/' + ${ act.qrName }}"></p>
+                            </div>
+
+                        </section>
+                    </section>
+
+                </div>
+            </div>
+
+            <fieldset style="margin-top: 20px; margin-bottom: 20px; max-width: 100%; box-sizing: border-box; min-width: 0px; -webkit-print-color-adjust: exact; font-family: Helvetica, arial, sans-serif; font-size: 14px; border-width: 0px; border-style: initial; border-color: initial; background-color: rgb(255, 255, 255); word-wrap: break-word !important;">
+                <section style="max-width: 100%; box-sizing: border-box; -webkit-print-color-adjust: exact; border-radius: 0px 5px 5px 0px; text-align: inherit; text-decoration: inherit; background-color: rgb(244, 244, 244); word-wrap: break-word !important;">
+                    <section style="padding: 8px; max-width: 100%; box-sizing: border-box; -webkit-print-color-adjust: exact; word-wrap: break-word !important;">
+                        <section style="margin-top: 10px; margin-right: 10px; margin-left: 15px; padding: 16px; max-width: 100%; -webkit-print-color-adjust: exact; border-width: 1px; border-style: dashed; border-color: rgb(100, 100, 100); border-radius: 10px; text-align: center; background-color: rgb(255, 255, 255); box-sizing: border-box !important; word-wrap: break-word !important;">
+              <span style="max-width: 100%; -webkit-print-color-adjust: exact; line-height: 3.4; color: rgb(63, 63, 63); font-size: 16px; box-sizing: border-box !important; word-wrap: break-word !important;">
+
+              <strong  style="max-width: 100%; -webkit-print-color-adjust: exact; box-sizing: border-box !important; word-wrap: break-word !important;">
+              长按查看更多本校区校活动</strong>
+            </span>
+                            <p style="max-width: 100%; min-height: 1em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                <img th:if="${ schoolId == 0 }" th:src="@{images/dongxiaoqu.png}" style="box-sizing: border-box !important; word-wrap: break-word !important; visibility: visible !important; width: auto !important; height: auto !important;" width="auto" _width="auto" >
+                                <img th:if="${ schoolId == 1 }" th:src="@{images/nanxiaoqu.png}" style="box-sizing: border-box !important; word-wrap: break-word !important; visibility: visible !important; width: auto !important; height: auto !important;" width="auto" _width="auto" >
+                                <img th:if="${ schoolId == 2 }" th:src="@{images/beixiaoqu.png}" style="box-sizing: border-box !important; word-wrap: break-word !important; visibility: visible !important; width: auto !important; height: auto !important;" width="auto" _width="auto" >
+                                <img th:if="${ schoolId == 3 }" th:src="@{images/zhuhaixiaoqu.png}" style="box-sizing: border-box !important; word-wrap: break-word !important; visibility: visible !important; width: auto !important; height: auto !important;" width="auto" _width="auto" >
+                                <img th:if="${ schoolId == 4 }" th:src="@{images/quanbuxiaoqu.png}" style="box-sizing: border-box !important; word-wrap: break-word !important; visibility: visible !important; width: auto !important; height: auto !important;" width="auto" _width="auto" >
+
+                            </p>
+                            <p style="max-width: 100%; min-height: 1em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                                <br style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">
+                            </p>
+                        </section>
+                        <p style="max-width: 100%; min-height: 1em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                            <br style="max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">
+                        </p>
+                    </section>
+                </section>
+            </fieldset>
+
+
+            <!-- 网页脚部 -->
+            <!-- {% module Footer() %} -->
+            <p class="" data-id="86183" style="line-height: 25.6px; border: 0px none; text-align: center;">
+                <br/>
+            </p>
+            <p class="" data-id="86183" style="line-height: 25.6px; border: 0px none; text-align: center;">
+                <br/>
+            </p>
+            <p class="" data-id="86183" style="line-height: 25.6px; border: 0px none;">
+                <br/>
+            </p>
+            <section class="" data-id="86032" style="line-height: 25.6px; border: 0px none;">
+                <section style="text-align: center;">
+                    <section style="margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; display: inline-block; background-color: rgb(254, 254, 254);">
+                        <p style="color: inherit;">
+                            <span class="" data-brushtype="text" style="font-size: 14px;">END</span>
+                        </p>
+                    </section>
+                    <section style="margin-top: -12px; margin-bottom: 10px;">
+                        <section data-width="100%" style="border-top-width: 1px; border-top-style: dashed; width: 100%; border-color: rgb(33, 33, 34);">
+                            <br/>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <p style="text-align: center;">
+                <img title="推送配图.png" data-ratio="0.4338235294117647" data-w="544" th:src="@{/images/wxCollection/qrcode.png}" word_img="qrcode.png" style="width:100%"/>
+            </p>
+            <p>
+                <br/>
+            </p>
+
+
+        </section>
+    </section>
+    <p>
+        <br/>
+    </p>
+</div>
+</body>
+</html>

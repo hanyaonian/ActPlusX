@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>活动详情</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Dropdown.js
+    <link th:href="@{//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">-->
+    <!-- Page style -->
+    <link th:href="@{css/activity_details.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{js/lazyLoad.js}"></script>
+
+    <!--百度统计-->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4ca3c2773341cdef5380810add802aa6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+    <div style="display:none"><img class="lazyload" th:src="@{img/img/pic2.jpg}"></div>
+<div class="container">
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <a href="#" onClick="javascript :history.go(-1);"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return.png}"></a>
+        <p class="navbar-text">活动详情</p>
+    </nav>
+    <div class="wrapper">
+        <div class="row picture">
+            <!--判断是否有海报，没有就使用默认海报-->
+            <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/defaultPoster.jpg}" th:if="${ actMeta.getPosterName() == null ||  actMeta.getPosterName() == ''}">
+            <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{'imgBase/poster/' + ${ actMeta.posterName }}" th:if="${ actMeta.getPosterName() != '' && actMeta.getPosterName() != null}">
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <p class="lead text-primary text-left col-xs-12" th:text="${ act.actName }">寒招志愿者招募|常回母校看看</p>
+                </div>
+                <div class="row intro-divider"></div>
+                <ul class="list-group">
+                    <li class="list-group-item"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/时间.png}"><span class="item">活动时间：</span><span th:text="|${ act.actTime }|">11月11日</span></li>
+
+                    <li class="list-group-item"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/地点.png}"><span class="item">活动地点：</span><span th:text="|${ act.actLoc }|">活动地点</span></li>
+
+                    <li class="list-group-item"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/活动对象.png}"><span class="item">活动对象：</span><span th:text="|${ act.actFor }|">活动对象</span></li>
+
+                    <!--<li class="list-group-item"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/时间.png}"><span class="item">活动截止时间：</span><span th:text="|${#dates.format(act.actDDL, 'yyyy年MM月dd日 HH:mm') }|">活动截止日期</span></li>-->
+
+                    <li class="list-group-item"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/报名.png}"><span class="item">报名方式：</span></br></br><span th:text="|${ act.actJoin }|">活动报名方式</span></li>
+
+                    <li class="list-group-item" th:if="${ act.getWelTime()!=null && act.getWelTime() != '' }"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/public.png}"><span class="item">公益时：</span><span th:text="|${ act.welTime }|">50个</span></li>
+
+                    <li class="list-group-item" th:if="${ act.getPEChapter() !=null && act.getPEChapter() != '' }"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/sports.png}"><span class="item">体育章：</span><span th:text="|${ act.PEChapter }|">5个</span></li>
+
+                    <li class="list-group-item" th:if="${ act.getOtherAw()!=null && act.getOtherAw() != '' }"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/奖励.png}"><span class="item">其他奖励：</span><span th:text="|${ act.otherAw }|">奖金</span></li>
+
+
+                    <li class="list-group-item"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/活动简介.png}"><span class="item">活动详情：</span></br></br><span th:text="|${ act.actDetail }|">活动详情</span></li>
+
+                    <hr />
+                    <div class="row intro-divider"></div>
+                    <li class="list-group-item"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/主办方.png}"><span th:text="|${ act.actPub }|">中大招协</span></li>
+
+                    <hr />
+                    <div class="row intro-divider"></div>
+
+
+                    <!--<hr />-->
+                    <div class="row intro-divider"></div>
+                    <li th:if="${ actMeta.enrollPeoNum != null }" class="list-group-item" >
+                        <span th:text="|已报名(${ actMeta.enrollPeoNum }人)|">已报名(99人)</span>
+                        <span th:text="|浏览量(${ actMeta.pageView }人)|" style="position: absolute; right: 0;">浏览量(13600人)</span>
+                    </li>
+                    <hr />
+                    <!--<hr />-->
+                    <div class="row intro-divider"></div>
+                </ul>
+
+                <!--判断是否有二维码，没有就取消出现-->
+                <div  th:if="${ act.qrName != null && act.qrName != '' && !act.qrName.equals('default.jpg')}" class="row QRcode" >
+                    <img class="lazyload"
+                         th:src="@{img/icon/lazyLoad.png}"
+                         th:data-img="@{'imgBase/qrImg/' + ${ act.qrName }}"
+                    >
+                </div>
+
+
+            </div>
+        </div>
+        <a th:href="@{/group(actId=${ act.actId })}"><button type="button" class="out btn btn-primary btn-lg">我要组队</button></a>
+
+        <a th:if="${ actMeta.isEnrollAvail() != null && actMeta.isEnrollAvail() == true }" th:href="@{/enroll(actId=${ act.actId })}"><button type="button" class="tip btn btn-primary btn-lg">我要报名</button></a>
+        <button th:if="${ actMeta.isEnrollAvail() == null || actMeta.isEnrollAvail() == false }" type="button" class="tip btn btn-primary btn-lg disabled">该活动未开启报名</button>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- Bootstrap -->
+<script th:src="@{js/bootstrap.min.js}"></script>
+
+<!-- Material Design for Bootstrap -->
+<script th:src="@{js/material.min.js}"></script>
+<script th:src="@{js/ripples.min.js}"></script>
+<script>
+  $.material.init();
+   $.imgLazyLoad();
+</script>
+ <script>
+    function resizeScreen() {
+        if ($(".QRcode img").width() > $(".QRcode img").height()) $(".QRcode img").width(300).height('auto');
+        else $(".QRcode img").height(300).width('auto');
+    }
+    function scrollScreen() {
+        if ($(".QRcode img").hasClass("lazyload")) {
+            return;
+        } else {
+            resizeScreen();
+            $(window).unbind('scroll', scrollScreen);
+            window.clearInterval(1);
+        }
+    }
+    resizeScreen();
+    $(window).bind('scroll resize', scrollScreen);
+    window.setInterval("scrollScreen()",800);
+</script>
+
+</body>
+</html>

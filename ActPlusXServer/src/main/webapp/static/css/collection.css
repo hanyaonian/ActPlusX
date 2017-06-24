@@ -1,0 +1,134 @@
+.mainContent > p {
+	line-height: 2em;
+}
+
+.header {
+    text-align: center;
+    border: 0.5px dashed black;
+    border-radius: 5%;
+    padding-top: 10px;
+}
+
+.header > h {
+	color: #1e9be8;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.header span {
+    font-size: 14px;
+}
+
+.header .header-campus {
+    text-align: center;
+    padding: 0 8px 0 8px;
+}
+
+.header ol > li > p {
+    margin: 0px;
+}
+
+.school-title {
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+.button {
+	color: white;
+    border: 4px solid #1e9be8;
+    background-color: #1e9be8;
+    position: fixed;
+    cursor: pointer;
+}
+
+/* 按钮部分的样式 */
+
+.button > a {
+    text-decoration: none !important;
+    color: white;
+}
+
+.edit {
+    right: 2%;
+}
+
+.copy {
+    right: 2%;
+    top: 10%;
+}
+
+.east {
+    left: 2%;
+}
+
+.south {
+    left: 2%;
+    top: 10%;
+}
+
+.north {
+    left: 2%;
+    top: 18%;
+}
+
+.zhuhai {
+    left: 2%;
+    top: 26%;
+}
+
+.activity-item {
+	position: relative;
+}
+
+.dispear {
+	display: none;
+}
+
+.canbe-edit {
+    contenteditable: true;
+}
+
+.activity-item > div {
+	position: absolute;
+    top: -70px;
+    left: 0px;
+}
+
+.up-button {
+    top: -70px !important;
+
+}
+
+.activity-item > div > button {
+	color: white;
+    border: 1px solid white;
+    padding: 4px;
+    background-color: #1e9be8;
+    cursor: pointer;
+}
+
+/* 审核页面的是否通过部分样式 */
+
+.activity-item > div > span {
+    vertical-align: super;
+}
+
+.activity-item > div > .radio {
+    width: 17px;
+    height: 17px;
+}
+
+.activity-item > div > .reason {
+    width: 225px;
+    margin-left: 10px;
+    vertical-align: super;
+}
+
+.dispear {
+    visibility: hidden;
+}
+
+/* input,textarea */
+input, textarea {
+    width: 100%;
+}

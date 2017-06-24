@@ -1,0 +1,109 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-text {
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.navbar .glyphicon {
+    font-size: 25px;
+    color: white;
+}
+
+.form-group .glyphicon {
+    font-size: 19px;
+    color: #5074D7;
+    padding: 0 15px 0 12px;
+}
+
+.form-group input {
+    padding: 0 15px 0 15px;
+    border-top: 0.8px solid #BBBBBB;
+    height: 44px;
+    background-color: white;
+}
+
+.necessary {
+    color: #EB5D48;
+}
+
+.showTips {
+    float: right;
+    display: none;
+}
+
+.material-icons {
+    color: #F43530;
+    width: 24px;
+}
+
+.warningTips {
+    vertical-align: top;
+    padding: 0 12px 0 2px;
+}
+
+.wrapper {
+    padding-top: 68px;
+}
+
+.tooltip-arrow {
+    border-right-color: #5074D7 !important;
+}
+
+.tooltip-inner {
+    color: white;
+    text-align: left !important;
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu !important;
+    background-color: #5074D7 !important;
+}
+
+textarea {
+    margin-top: 27px !important;
+    height: 150px !important;
+    background-color: white !important;
+    padding-left: 8px !important;
+    padding-top: 12px !important;
+}
+
+.btn {
+    margin-top: 50px;
+    background-color: #5074D7 !important;
+    color: white !important;
+    font-size: 16px !important;
+}
+
+/*-------模态框---------*/
+.modal-dialog {
+    position: absolute;
+    left: 50% !important;
+    top: 50% !important;
+    width: 340px;
+    height: 302px;
+    transform: translateX(-53%) translateY(-50%) !important;
+}
+
+.modal {
+    top: 20px !important;  /*让其垂直居中*/
+}

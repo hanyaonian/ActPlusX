@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>中大活动</title>
+        <link rel="stylesheet" type="text/css" th:href="@{css/admin.css}">
+
+    </head>
+    <body>
+        <div class="header">
+            <span><a th:href="@{/logout}">登出</a></span>
+            <h1>中大活动汇总</h1>
+        </div>
+        <div class="body">
+            <a th:href="@{wxCollection?schoolId=0}">当前活动</a>
+            <a th:href="@{audit.html}">待审核活动</a>
+            <a th:href="@{/admin/group}">管理组队信息</a>
+            <a th:href="@{http://tongji.baidu.com/web/welcome/login}">网站浏览量统计（百度统计）</a>
+
+        </div>
+
+        <div class="footer"><span>中大活动</span></div>
+    </body>
+</html>

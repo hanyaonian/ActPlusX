@@ -1,0 +1,102 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.navbar-text {
+    float: none;
+    position: absolute;
+    background-color: rgba(1, 1, 1, 0);
+    width: 50%;
+    height: 100%;
+    margin: 0 22.5% 0 20.5%;
+    text-align: center;
+    line-height: 3;
+}
+
+.navbar {
+    background-color: #F0F0F2;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+.navbar .glyphicon {
+    font-size: 25px;
+    color: #5074D7;
+}
+
+.navbar .glyphicon-arrow-left {
+    color: #555555;;
+}
+
+.wrapper {
+    padding-top: 69px;
+}
+
+.form-group .icon {
+    vertical-align: text-bottom;
+    margin: 0 15px 0 12px;
+}
+
+.form-group input {
+    padding: 0 15px 0 15px;
+    border-top: 0.8px solid #BBBBBB;
+    height: 44px;
+    background-color: white;
+}
+
+.necessary {
+    color: #EB5D48;
+}
+
+.showTips {
+    float: right;
+    display: none;
+}
+
+.material-icons {
+    color: #F43530;
+    width: 24px;
+}
+
+.warningTips {
+    vertical-align: top;
+    padding: 0 12px 0 2px;
+}
+
+.btn {
+    margin-top: 50px;
+    background-color: #5074D7 !important;
+    color: white !important;
+    font-size: 16px !important;
+}
+
+
+/*-------模态框---------*/
+.modal-dialog {
+    position: absolute;
+    left: 50% !important;
+    top: 50% !important;
+    width: 250px;
+    transform: translateX(-53%) translateY(-50%) !important;
+}
+
+#myModal2 .modal-dialog {
+    width: 340px;
+    height: 302px;
+}
+
+.modal {
+    top: 20px !important;  /*让其垂直居中*/
+}

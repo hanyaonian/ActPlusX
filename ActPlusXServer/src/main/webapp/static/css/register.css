@@ -1,0 +1,115 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+
+.navbar-text {
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+.form-group .icon {
+    vertical-align: text-bottom;
+    margin: 0 15px 0 12px;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.navbar .glyphicon {
+    font-size: 25px;
+    color: white;
+}
+
+.picture {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 17px;
+}
+
+.form-group .glyphicon {
+    font-size: 19px;
+    color: #5074D7;
+    padding: 0 15px 0 12px;
+}
+
+.form-group label {
+    margin-left: 15px;
+    font-weight: normal;
+}
+
+.form-group {
+    line-height: 0;
+    text-align: left;
+}
+
+.form-group input {
+    padding: 0 15px 0 15px;
+    border-top: 0.8px solid #BBBBBB;
+    height: 44px;
+    background-color: white;
+}
+
+.necessary {
+    color: #EB5D48;
+}
+
+.showTips {
+    float: right;
+    display: none;
+}
+
+.material-icons {
+    color: #F43530;
+    width: 24px;
+}
+
+.warningTips {
+    vertical-align: super;
+    padding: 0 12px 0 2px;
+}
+
+.wrapper {
+    padding-top: 68px;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 50px;
+    background-color: #5074D7 !important;
+    color: white !important;
+    font-size: 16px !important;
+}
+
+.another-signin {
+    color: #828282 !important;
+    display: block;
+    text-align: right;
+    padding-right: 15px;
+    margin: 5px;
+}
+
+.register-button {
+    margin-top: 30%;
+    color: #5074D7;
+    background-color: #F0F0F2;
+    border: 1.5px solid #5074D7;
+    padding: 14px 23px;
+}

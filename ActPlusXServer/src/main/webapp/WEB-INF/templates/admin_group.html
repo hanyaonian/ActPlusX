@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>活动组队</title>
+    <meta charset="utf-8">
+
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- Material Design fonts
+    <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Roboto:300,400,500,700}" type="text/css">
+    <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet">-->
+    <!-- Bootstrap -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet">
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{/css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{/css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Dropdown.js
+    <link th:href="@{//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css}" rel="stylesheet">-->
+    <!-- Page style -->
+    <link th:href="@{/css/group.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{/js/return_back.js}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <a th:href="@{ /index}"><img class="icon lazyload" th:src="@{/img/icon/lazyLoad.png}" th:data-img="@{/img/icon/return.png}"></a>
+        <p class="navbar-text">活动组队</p>
+        <a class="group-edit" th:href="@{group_edit.html}"><img class="icon lazyload" th:src="@{/img/icon/lazyLoad.png}" th:data-img="@{/img/icon/添加.png}"></a>
+    </nav>
+    <div class="container wrapper">
+
+        <a th:each="groupInfo : ${ groupInfos }" th:href="@{group_details(groupId=${ groupInfo.group.getGroupId() })}">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="lazyload" th:src="@{/img/icon/lazyLoad.png}" th:data-img="@{'/imgBase/headImg/' + ${ groupInfo.user.getHeadImg() }}">
+                    <div>
+                        <h1 class="break-words" th:text="${ groupInfo.group.getTitle() }">求软件创新赛组队</h1>
+                        <p class="break-words" th:text="|${groupInfo.user.nickname} 发布于：${#dates.format(groupInfo.group.getPubTime(), 'yyyy年MM月dd日 HH:mm')}|">wxm发布于：2016年11月25日22:00</p>
+
+                        <span th:each="tag : ${ groupInfo.actTypeTags }">
+                            <span class="label label-info" th:text="${ tag }">比赛</span>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <span class="break-words" th:text="${ groupInfo.group.getMainText() }">
+                        我们是来自中大东校区的学生，组队参加2016年软件创新赛，求来个有产品设计经验的同学加入我们。目前团队已有负责项目管理、用户分析和编程的（大腿）同学。
+                    </span>
+                    <p class="break-words" th:text="|联系方式：${ groupInfo.group.getContact() }|">联系方式：12345567； 微信号：sysu2016</p>
+                </div>
+                <a th:href="@{ '/admin/deleteGroup?groupId=' + ${groupInfo.group.getGroupId() } }"><button type="button" >删除该组队</button></a>
+            </div>
+        </a>
+
+    </div>
+
+
+<script th:src="@{/js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+    <!-- Bootstrap -->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{/js/material.min.js}"></script>
+    <script th:src="@{/js/ripples.min.js}"></script>
+    <script>
+  $.material.init();
+    </script>
+
+</body>
+</html>

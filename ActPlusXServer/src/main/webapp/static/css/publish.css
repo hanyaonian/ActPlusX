@@ -1,0 +1,214 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-text {
+    float: none;
+    position: absolute;
+    background-color: rgba(1, 1, 1, 0);
+    width: 50%;
+    height: 100%;
+    margin: 0 22.5% 0 20.5%;
+    text-align: center;
+    line-height: 3;
+}
+
+.navbar {
+    background-color: #F0F0F2;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+    z-index: 3;
+}
+
+/*.navbar .glyphicon {
+    font-size: 25px;
+    color: #5074D7;
+}*/
+
+.open_signup {
+    background-color: white !important;
+    padding: 5px 5px;
+}
+
+.navbar-text .icon {
+    width: 35px;
+    height: 35px;
+}
+
+.form-group .icon {
+    vertical-align: text-bottom;    
+    margin: 0 15px 0 12px;
+}
+
+.icon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+/*
+.form-group .glyphicon {
+    font-size: 19px;
+    color: #5074D7;
+}*/
+label.control-label {
+    padding-left: 12px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.form-group textarea {
+    padding: 6px 15px 0 15px;
+    border-top: 0.8px solid #BBBBBB;   
+    background-color: white;
+    line-height: inherit;
+}
+
+.form-group input, .form-group select {
+    padding: 0 15px 0 15px;
+    border-top: 0.8px solid #BBBBBB;
+    height: 44px !important;    
+    background-color: white;
+}
+
+.file-input .btn-file {
+    margin-top: 0px;
+    width: 100%;
+    background-color: white !important;
+    color: #5074d7 !important;
+    font-size: 30px !important;
+}
+
+/*.navbar .glyphicon-arrow-left {
+    color: #555555;;
+}*/
+
+.wrapper {
+    padding-top: 69px;
+}
+
+.necessary {
+    color: #EB5D48;
+}
+
+.showTips {
+    float: right;
+    display: none;
+}
+
+.material-icons {
+    color: #F43530;
+    width: 24px;
+}
+
+.warningTips {
+    vertical-align: top;
+    padding: 0 12px 0 2px;
+}
+
+.signup {
+    vertical-align: text-bottom !important;
+    color: #8B8B8B;
+    font-weight: normal;
+    margin-right: 30%;
+}
+
+
+.divider-dot {
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    margin-right: 8px;
+    background-color: #5074D7;
+}
+
+.panel-heading {
+    background-color: white !important;
+}
+
+.panel-heading p {
+    font-size: 14px;
+    margin-bottom: 0px;
+    color: #A9A5A9;
+}
+
+.checkbox label input[type=checkbox] {
+    width: 20px !important;
+    height: 20px !important;
+    opacity: 1;
+    z-index: 2;
+}
+
+.others {
+    border: 1px solid #BDBDBD;
+    border-bottom-width: 0px;
+    border-radius: 10px;
+    padding-left: 45%;
+    background-color: #F0F0F2;
+}
+
+.sure-again {
+    margin-top: 50px;
+    background-color: #5074D7 !important;
+    color: white !important;
+    font-size: 16px !important;
+}
+
+.checkbox label input[type=checkbox] {
+    right: 0 !important;
+    left: 90% !important;
+}
+
+.checkbox label {
+    padding-left: 0 !important;
+    width: 90% !important;
+}
+
+.checkbox img {
+    margin-right: 15px;
+    width: 25px;
+    height: 25px;
+}
+
+.btn {
+    margin-top: 50px;
+    background-color: #5074D7 !important;
+    color: white !important;
+    font-size: 16px !important;
+}
+
+.checkbox label input[type=checkbox] {
+    width: 20px !important;
+    height: 20px !important;
+    opacity: 1;
+}
+
+
+/*-------模态框---------*/
+.modal-dialog {
+    position: absolute;
+    left: 50% !important;
+    top: 50% !important;
+    width: 250px;
+    transform: translateX(-53%) translateY(-50%) !important;
+}
+
+#myModal2 .modal-dialog {
+    width: 340px;
+    height: 302px;
+}
+
+.modal {
+    top: 20px !important;  /*让其垂直居中*/
+}
+
+#enrollTips {
+    text-align: center;
+    color: #ff6a6a;
+}

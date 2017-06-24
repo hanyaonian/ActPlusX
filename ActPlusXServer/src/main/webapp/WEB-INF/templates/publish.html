@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>发布活动</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" th:href="@{css/Roboto.css}" type="text/css">
+    <link th:href="@{css/MaterialIcons.css}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+    <link th:href="@{css/snackbar.min.css}" rel="stylesheet">
+
+    <link th:href="@{css/bootstrap-toggle-buttons.css}" rel="stylesheet">
+
+    <!-- 文件相关 -->
+    <link th:href="@{css/fileinput.css}" media="all" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet/less" th:href="@{less/_togglebutton.less"> -->
+
+    <!-- Page style -->
+    <link th:href="@{css/publish.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.js}"></script>
+
+    <!-- less -->
+    <script th:src="@{js/less.js}"></script>
+    <script>less.watch();</script>
+
+    <!-- 文件相关 -->
+    <script th:src="@{js/fileinput.js}" type="text/javascript"></script>
+    <!-- 数据校验 -->
+    <script th:src="@{js/publish.js}"></script>
+
+    <!-- 日期选择插件 -->
+    <script type="text/javascript" th:src="@{js/jedate/jquery.jedate.js}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{js/jedate/skin/jedate.css}">
+    <script th:src="@{js/return_back.js}"></script>
+
+<!--百度统计-->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4ca3c2773341cdef5380810add802aa6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-fixed-top" role="navigation">
+    <a class="return-back" th:href="@{manage.html}"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return2.png}"></a>
+    <p class="navbar-text"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/发布1.png}">  发布活动</p>
+</nav>
+<div class="wrapper">
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModal2Label">发布失败</h4>
+                </div>
+                <div class="modal-body">
+                    输入有误，请检查。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+
+
+    <form role="form" method="post" id="myform"  th:action="@{(${ isAnony } ? '/publish_anony' : '/publish')  }" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/标题.png}">活动名称<span class="necessary">*</span></label>
+            <span class="showTips" id="nameTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必须填写哦</span></span>
+            <input maxlength="30" name="actName" type="text" class="form-control" id="name" placeholder="例：关注中大活动">
+        </div>
+
+        <div class="form-group">
+            <label for="position"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/地点.png}"></span>活动地点<span class="necessary">*</span></label>
+            <span class="showTips" id="positionTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必须填写哦</span></span>
+            <textarea maxlength="100" name="actLoc" type="text" class="form-control" rows="3" id="position" placeholder="例：中大南校区"></textarea>
+
+        </div>
+
+        <div class="form-group">
+            <label for="people"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/活动对象.png}"></span>活动对象<span class="necessary">*</span></label>
+            <span class="showTips" id="peopleTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必须填写哦</span></span>
+            <textarea maxlength="30" name="actFor" rows="2" type="text" class="form-control" id="people" placeholder="例：中大全体学生"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="time"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/时间.png}"></span>活动时间<span class="necessary">*</span></label>
+            <span class="showTips" id="timeTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必须填写哦</span></span>
+            <textarea maxlength="100" name="actTime" rows="4" type="text" class="form-control" id="time" placeholder="例：2017年3月11日-7月1日"></textarea>
+        </div>
+
+        <!--匿名发布者-->
+        <div class="form-group" th:if="${ isAnony == true }">
+            <label for="sponsor"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/主办方.png}"></span>主办方<span class="necessary">*</span></label>
+            <span class="showTips" id="sponsorTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必须填写哦</span></span>
+            <textarea maxlength="50" name="actPub" rows="3" type="text" class="form-control" id="sponsor" placeholder="例：中大活动团队" ></textarea>
+        </div>
+
+        <!--认证发布者（不会显示在前端）-->
+        <!--活动主办方-->
+        <div th:if="${ isAnony == false }" class="form-group" style="display:none">
+            <input type="text" name="actPub" th:value="${puber.pubname}">
+        </div>
+
+
+        <div class="form-group">
+            <label for="info"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/简介.png}"></span>活动简介<span class="necessary">*</span></label>
+            <span class="showTips" id="infoTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必须填写哦</span></span>
+            <textarea maxlength="50" name="actIntru" rows="3" type="text" class="form-control" id="info" placeholder="例：请打开微信，搜索中大活动，点击关注"></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <label for="signup"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/活动要求.png}"></span>报名方式<span class="necessary">*</span></label>
+            <span class="showTips" id="signupTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必须填写哦</span></span>
+            <textarea maxlength="200" name="actJoin" rows="5" type="text" class="form-control" id="signup" placeholder="例：线上报名"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="detail"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/details.png}"></span>活动详情<span class="necessary">*</span></label>
+            <span class="showTips" id="detailTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必须填写哦</span></span>
+            <textarea maxlength="200" name="actDetail" rows="5" type="text" class="form-control" id="detail" placeholder="例：请打开微信，搜索中大活动，点击关注"></textarea>
+        </div>
+
+        <!-- 截止日期 和之前一样滚动 -->
+        <div class="form-group">
+            <label for="date"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/截止时间.png}"></span>截止日期<span class="necessary">*</span></label>
+            <span class="showTips" id="dateTip"><i class="material-icons">&#xE000;</i><span class="warningTips">日期有误</span></span>
+            <input readonly="readonly" type="text" name="actDDL_Str" class="form-control" id="date" placeholder="">
+        </div>
+
+        <!-- 活动校区 多选选择 -->
+        <div class="form-group">
+            <label for="school"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/主办方.png}"></span>活动校区<span class="necessary">*</span></label>
+            <span class="showTips" id="schoolTip"><i class="material-icons">&#xE000;</i><span class="warningTips">必选填写哦</span></span>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p><span class="divider-dot"></span>可多选</p>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input class="check-box" type="checkbox" name="actSchool" value="中山大学-东校区"><span class="checkbox-material"><span class="check"></span></span>中山大学-东校区
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input class="check-box" type="checkbox" name="actSchool" value="中山大学-南校区"><span class="checkbox-material"><span class="check"></span></span>中山大学-南校区
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input class="check-box" type="checkbox" name="actSchool" value="中山大学-北校区"><span class="checkbox-material"><span class="check"></span></span>中山大学-北校区
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input class="check-box" type="checkbox" name="actSchool" value="中山大学-珠海校区"><span class="checkbox-material"><span class="check"></span></span>中山大学-珠海校区
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 活动类型 多选选择 -->
+        <div class="form-group">
+            <label for="type"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/活动类型.png}"></span>活动类型<span class="necessary">*</span></label>
+            <select id="select111" name="actType" class="form-control">
+                <option>公益</option>
+                <option>体育</option>
+                <option>比赛</option>
+                <option>讲座</option>
+                <option>户外</option>
+                <option>休闲</option>
+                <option>演出</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="award"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/奖励.png}"></span>活动奖励</label>
+            <!-- <span class="showTips" id="awardTip"><i class="material-icons">&#xE000;</i><span class="warningTips">格式有误</span></span> -->
+            <!-- <textarea rows="3" type="text" class="form-control" id="award" placeholder="中大招协"></textarea> -->
+            <div class="form-group">
+                <label for="time" class="control-label">公益时</label>
+                <span class="showTips" id="timeTip"><i class="material-icons">&#xE000;</i><span class="warningTips">格式有误</span></span>
+                <input maxlength="15" name="welTime" type="text" class="form-control" id="time" placeholder="例：5个">
+            </div>
+            <div class="form-group">
+                <label for="sports" class="control-label">体育章</label>
+                <span class="showTips" id="sportsTip"><i class="material-icons">&#xE000;</i><span class="warningTips">格式有误</span></span>
+                <input maxlength="15" name="PEChapter" type="text" class="form-control" id="sports" placeholder="例：10个">
+            </div>
+            <div class="form-group">
+                <label for="other" class="control-label">其他</label>
+                <span class="showTips" id="otherTip"><i class="material-icons">&#xE000;</i><span class="warningTips">格式有误</span></span>
+                <textarea maxlength="100" name="otherAw" rows="3" type="text" class="form-control" id="other" placeholder="例：奖金100元"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="require"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/活动要求.png}"></span>活动要求</label>
+            <span class="showTips" id="requireTip"><i class="material-icons">&#xE000;</i><span class="warningTips">格式有误</span></span>
+
+            <textarea maxlength="100" name="actDem" rows="3" type="text" class="form-control" id="require" placeholder="例：关注我们，一分钟获得中大活动资讯哦~！"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="email"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/email.jpg}"></span>联系邮箱<span class="necessary">*</span></label>
+            <span class="showTips" id="emailTip"><i class="material-icons">&#xE000;</i><span class="warningTips">格式有误</span></span>
+
+            <input maxlength="30" name="pubEmail"  type="email" class="form-control" id="email" placeholder="ps.如果活动不通过审核会通过邮箱通知你哟~" />
+        </div>
+
+
+        <!-- 上传海报（选填） -->
+        <div class="form-group">
+            <label for="file1"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/图片.png}"></span>上传海报</label>
+            <input id="file1" class="file" name="imgFile" type="file" accept="image/png,image/gif,image/jpg,image/jpeg" multiple=true>
+        </div>
+
+        <!-- 上传二维码（选填） -->
+        <div class="form-group">
+            <label for="file2"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/图片.png}"></span>上传相关二维码(建议正方形二维码)</label>
+            <input id="file2" class="file" name="qrFile" type="file" accept="image/png,image/gif,image/jpg,image/jpeg" multiple=true>
+        </div>
+
+        <!--认证发布者才有权限开启该系统-->
+        <!-- 开启报名系统 -->
+        <div th:if="${ isAnony == false }">
+            <div class="open_signup">
+                <label class="signup">开启报名系统?</label>
+                <div id="callback-toggle-button">
+                    <input type="checkbox" name="isEnrollAvail" >
+                </div>
+            </div>
+            <div id="control-panel" class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group" id="enrollTips">
+                        <p>我们将为你收集报名者的如下信息：</p>
+                        <p>学院，姓名，邮箱，手机号码，学号</p>
+                        <p>截止日期前将会发到您的联系邮箱</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <span class="checkbox-material"><span class="check"></span></span><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/活动对象.png}">人数限制
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="peopleLimit" value="20" class="others form-control" placeholder="例：200人">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- button的type本来应该是button，暂时改为submit看看效果 -->
+        <div class="container">
+            <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block">发布</button>
+        </div>
+
+    </form>
+</div>
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+<!-- Bootstrap -->
+<script th:src="@{js/bootstrap.min.js}"></script>
+
+<!-- Material Design for Bootstrap -->
+<script th:src="@{js/material.min.js}"></script>
+<script th:src="@{js/ripples.min.js}"></script>
+<script th:src="@{js/jquery.toggle.buttons.js}"></script>
+<script th:src="@{js/snackbar.min.js}"></script>
+<script>
+  $.material.init();
+    </script>
+<script>
+  // $('#button1').toggleButtons();
+    $("#control-panel").hide();
+
+        $('#callback-toggle-button').toggleButtons({
+        onChange: function ($el, status, e) {
+            console.log($el, status, e);
+            $("#control-panel").toggle();
+        }
+    });
+    </script>
+
+<script>
+    $(".file").fileinput({
+        showUpload: false,
+        showCaption: false,
+        maxFileCount: 1,
+        maxFileSize: 2048,
+        browseClass: "btn btn-primary btn-lg",
+        fileType: "any",
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
+    });
+    //  只能上传正方形
+    //$('#file2').on('fileselect', function(event, numFiles, label) {
+       // var img = $('.kv-file-content img');
+       // if (img.height != img.width)
+    //});
+    </script>
+
+<script type="text/javascript">
+        Date.prototype.Format = function(fmt)
+        { //author: meizz
+          var o = {
+            "M+" : this.getMonth()+1,                 //月份
+            "d+" : this.getDate(),                    //日
+            "h+" : this.getHours(),                   //小时
+            "m+" : this.getMinutes(),                 //分
+            "s+" : this.getSeconds(),                 //秒
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度
+            "S"  : this.getMilliseconds()             //毫秒
+          };
+          if(/(y+)/.test(fmt))
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+          for(var k in o)
+            if(new RegExp("("+ k +")").test(fmt))
+          fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+          return fmt;
+        }
+
+        var a = (new Date()).Format("yyyy-MM-dd hh:mm:ss");
+        $("#date").jeDate({
+            format:"YYYY年MM月DD日 hh:mm",
+            isTime:true,
+            festival: true,
+            minDate:a
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:jaxrs="http://cxf.apache.org/jaxrs"-->
+       <!--xsi:schemaLocation="-->
+	<!--http://www.springframework.org/schema/beans-->
+	<!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
+	<!--http://cxf.apache.org/jaxrs-->
+	<!--http://cxf.apache.org/schemas/jaxrs.xsd">-->
+
+    <!--&lt;!&ndash; do not use import statements if CXFServlet init parameters link to this beans.xml &ndash;&gt;-->
+
+    <!--<import resource="classpath:META-INF/cxf/cxf.xml" />-->
+    <!--<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />-->
+
+    <!--<jaxrs:server id="customerService" address="/">-->
+        <!--<jaxrs:serviceBeans>-->
+            <!--&lt;!&ndash;<ref bean="customerBean" />&ndash;&gt;-->
+            <!--<ref bean="activityMetaBean" />-->
+            <!--<ref bean="activityListApiBean" />-->
+            <!--<ref bean="activityBean" />-->
+            <!--<ref bean="imageDownLoadApi" />-->
+        <!--</jaxrs:serviceBeans>-->
+
+        <!--&lt;!&ndash; 引入json 输入/输出支持 &ndash;&gt;-->
+        <!--<jaxrs:providers>-->
+            <!--<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"/>-->
+            <!--<bean class="org.apache.cxf.jaxrs.provider.JAXBElementProvider"/>-->
+        <!--</jaxrs:providers>-->
+    <!--</jaxrs:server>-->
+
+    <!--&lt;!&ndash;<bean id="customerBean" class="actPlus.webService.sample.CustomerService" />&ndash;&gt;-->
+    <!--<bean id="activityMetaBean" class="actPlus.webService.ActMetaService" />-->
+    <!--<bean id="activityListApiBean" class="actPlus.webService.ActivityListApi" />-->
+    <!--<bean id="activityBean" class="actPlus.webService.ActivityWebService" />-->
+    <!--<bean id="imageDownLoadApi" class="actPlus.webService.ImageDownLoadApi" />-->
+
+
+<!--</beans>-->
+
+

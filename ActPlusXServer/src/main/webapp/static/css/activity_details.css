@@ -1,0 +1,132 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: white;
+    padding: 0px;
+    color: #666666;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-text {
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0 !important;
+}
+
+.navbar .glyphicon {
+    font-size: 25px;
+    color: white;
+}
+
+.container {
+    word-break: break-word !important;
+}
+
+.wrapper {
+    padding-top: 50px;
+}
+
+.back {
+    width: 25px;
+    height: 25px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.picture {
+    padding-bottom: 20px;
+}
+
+.picture img {
+    height: 205px;
+    width: 100%;
+}
+
+.QRcode {
+    display: block !important;
+    text-align: center !important;
+}
+
+.QRcode img {
+    height: 300px;
+    margin: auto;
+}
+
+button {
+    background-color: #5074D7 !important;
+}
+
+.text-primary {
+    font-size: 17px !important;
+    color: black !important;
+    font-weight: bold !important;
+}
+
+.list-group-item {
+    padding: 6px;
+}
+
+.glyphicon {
+    color: #5074D7;
+}
+
+.list-group-item :first-child {
+    margin-right: 8px;
+}
+
+.list-group-item .item {
+    font-weight: bold;
+}
+
+.list-group-item span {
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.list-group-item p {
+    line-height: 1.5;
+    margin-bottom: 0px;
+    font-size: 14px;
+    padding-left: 21px;
+}
+
+.list-group-item .picture {
+    margin: 0 auto;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.span-right {
+    display: inline-block;
+    position: absolute !important;
+    right: 0 !important;
+}
+
+.intro-divider {
+    width: auto;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 7px;
+}
+
+.btn {
+    color: white !important;
+    font-size: 16px !important;
+    width: 49% !important;
+    margin-top: 25px !important;
+}

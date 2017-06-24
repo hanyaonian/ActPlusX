@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: home page
+    description: the html document
+-->
+<html lang="en">
+<head>
+    <title>活动plus</title>
+    <meta charset="utf-8">
+    <meta property="wb:webmaster" content="38c0a0fd281ed546" />
+
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.css}" rel="stylesheet">
+    <!--<link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">-->
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Page style -->
+    <link th:href="@{css/index.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+
+    <script th:src="@{js/index.js}"></script>
+
+    <style type="text/css"></style>
+
+    <script th:src="@{js/lazyLoad.js}"></script>
+
+    <!--百度统计-->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4ca3c2773341cdef5380810add802aa6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="info" th:href="@{ /personal_center }"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/更多.png}"></a>
+                    <p class="navbar-text">活动plus</p>
+                    <a class="map" th:href="@{position.html}">
+                        <span th:text="|当前：${schoolName}|">当前：校区</span>
+                        <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/定位.png}">
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="row">
+            <ul class="col-xs-12 nav nav-tabs">
+
+                <!--<li class="col-xs-6"><a class="home" th:href="@{group.html}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/团队.png}"><p>活动组队</p></a></li>-->
+
+
+                <!--<li class="col-xs-6"><a class="post-activity" th:href="@{#}" data-toggle="modal" data-target="#myModal"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/发布.png}"><p>发布活动</p></a></li>-->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">活动管理者登录</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" method="POST" role="form" th:action="@{/login?from=index}">
+                                  <div class="form-group">
+                                    <label for="name" class="col-sm-2 control-label">账号</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="name" name="username" placeholder="请输入账号">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="password" class="col-sm-2 control-label" >密码</label>
+                                    <div class="col-sm-10">
+                                      <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
+                                    </div>
+                                  </div>
+
+                                    <div class="modal-footer">
+                                        <a th:href="@{/publish_anony}"><button type="button" class="btn btn-default">匿名发布</button></a>
+
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="submit" class="manager btn btn-primary">确定</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+            </ul>
+        </div>
+
+
+        <div class="row activity-menu">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12"></div>
+                    <a class="col-xs-3" th:href="@{activity_lists(actType=welfare, schoolId=${schoolId})}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/公益.jpg}"><p>公益</p></a>
+                    <a class="col-xs-3" th:href="@{activity_lists(actType=game, schoolId=${schoolId})}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/比赛.png}"><p>比赛</p></a>
+                    <a class="col-xs-3" th:href="@{activity_lists(actType=outside, schoolId=${schoolId})}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/户外.jpg}"><p>户外</p></a>
+                    <a class="col-xs-3" th:href="@{activity_lists(actType=lecture, schoolId=${schoolId})}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/讲座.jpg}"><p>讲座</p></a>
+                </div>
+                <div class="intro-divider"></div>
+                <div class="row">
+                    <div class="col-xs-12"></div>
+                    <a class="col-xs-3" th:href="@{activity_lists(actType=casual, schoolId=${schoolId})}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/休闲.png}"><p>休闲</p></a>
+                    <a class="col-xs-3" th:href="@{activity_lists(actType=performance, schoolId=${schoolId})}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/演出.png}"><p>演出</p></a>
+                    <a class="col-xs-3" th:href="@{activity_lists(actType=PE, schoolId=${schoolId})}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/体育.jpg}"><p>体育</p></a>
+                    <a class="col-xs-3" th:href="@{activity_lists(actType=allList, schoolId=${schoolId})}"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/全部.png}"><p>全部</p></a>
+                </div>
+            </div>
+        </div>
+        <div class="row hot-activity">
+            <p class="col-xs-12"><span class="divider-dot"></span>热门活动</p>
+            <div class="col-xs-12">
+
+
+                <div class="row" th:each="actMeta : ${ activityMetas }">
+                    <div class="center-thumbnail">
+                        <a class="thumbnail" th:href="@{activity_details(actId=${actMeta.actId})}">
+                            <!--判断是否有海报，没有就使用默认海报-->
+                            <img th:src="@{img/img/leisure-default.jpg}" th:if="${ actMeta.getPosterName() == null ||  actMeta.getPosterName() == ''}">
+
+                            <!--使用上传的海报-->
+                            <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{'imgBase/poster/' + ${ actMeta.posterName }}" th:if="${ actMeta.getPosterName() != '' && actMeta.getPosterName() != null}">
+
+                            <div class="mask">
+                                <p class="title"><span  th:text="${ actMeta.actName }">寒假招募 | 常回母校看看</span></p>
+                                <p class="type"><span th:text="${ actMeta.actType }">公益</span></p>
+                            </div>
+                            <div class="caption">
+                                <p><span class="sicon glyphicon glyphicon-time"></span><span class="hot-act-details" th:text="${ actMeta.actTime }"> 10月11日7:00</span></p>
+                                <p><span class="sicon glyphicon glyphicon-map-marker"></span><span class="hot-act-details" th:text="${ actMeta.actLoc }">公教楼D202</span></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Twitter Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+  $.material.init();
+  $.imgLazyLoad();
+    </script>
+
+</body>
+</html>

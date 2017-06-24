@@ -1,0 +1,131 @@
+body {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    background-color: #F0F0F2;
+    padding: 0px;
+    color: #666666;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-text {
+    float: none;
+    padding-left: 16px;
+    display: inline-block;
+    color: white;
+}
+
+.navbar {
+    height: 50px;
+    background-color: #5074D7;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    margin: 0 !important;
+    z-index: 20;
+}
+
+.navbar .glyphicon {
+    font-size: 25px;
+    color: white;
+}
+
+.wrapper {
+    padding-top: 50px;
+    margin-bottom: 27px;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+#myCarousel {
+    width: 100%;
+    height: 230px;
+    padding-bottom: 20px;
+}
+
+#myCarousel img {
+    width: 100%;
+    height: 230px;
+}
+
+.carousel-control {
+    font-size: 40px;
+    padding-top: 20%;
+    padding-bottom: 25%;
+}
+
+.thumbnail {
+    position: relative;
+    box-shadow: 8px 8px 10px #aaaaaa;
+    margin-left: 6px;
+    margin-right: 7px;
+    word-break: break-word;
+}
+
+.thumbnail .mask {
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+    width: 97%;
+    height: 57.59%;
+
+    text-align: center;
+    /*line-height: 6;*/
+    background-color: rgba(5,5,5,0.5);
+    color: white;
+    font-size: larger;
+}
+
+.thumbnail img {
+    width: 337px;
+    height: 149px;
+}
+
+.mask .title {
+    margin-top: 42px;
+}
+
+.mask .type {
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 54px;
+    /*height: 28px;*/
+    margin: 0 auto;
+    font-size: 88%;
+}
+
+.hot-activity {
+    background-color: #F0F0F2;
+}
+
+.hot-activity > p {
+    margin: 0px;
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+
+.thumbnail .caption {
+    margin-left: 6%;
+    margin-top: 2%;
+    padding-bottom: 0px;
+}
+
+/* 无活动情况 */
+#noAct {
+    text-align: center;
+    margin-top: 45%;
+}
+
+/* 热门活动部分 */
+.sicon {
+    color: #5074D7;
+    padding-right: 5px;
+}
+
+.hot-act-details {
+    word-break: break-all;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>申请为活动发布者</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- Material Design fonts
+    <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Roboto:300,400,500,700}" type="text/css">
+    <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet">-->
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Dropdown.js
+    <link th:href="@{//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css}" rel="stylesheet">-->
+    <!-- Page style -->
+    <link th:href="@{css/contact_us.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{js/return_back.js}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <a href="#" class="return-back"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return.png}" class="icon"></a>
+        <p class="navbar-text">申请为活动发布者</p>
+    </nav>
+    <div class="wrapper">
+        <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/姓名.png}" style="width:57px; height: 57px;" data-toggle="tooltip" data-placement="right" title="如果您是商家，想进行活动推广、商业合作、广告投放。请直接联系邢同学（微信号：xingyujing916）" data-trigger="none">
+        </img>
+        
+
+        <form role="form" th:action="@{ /register_puber }" method="post">
+            <div class="form-group">
+                <textarea name="contentText" class="form-control" rows="3" placeholder="请输入您的组织信息：组织名称,组织类型（公益等），我们会后续联系您"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="phone"><span class="glyphicon glyphicon-phone"></span>联系信息(必填)<span class="necessary">*</span></label>
+                <span class="showTips" id="phoneTip"><i class="material-icons">error</i><span class="warningTips">格式有误</span></span>
+                <input type="text" class="form-control" id="phone" name="contactMethod">
+            </div>
+
+            <div class="container">
+                <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block">提交</button>
+            </div>
+        </form>
+
+
+    </div>
+
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+    <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+        $.material.init();
+    </script>
+    <script>
+        $(function () { $("[data-toggle='tooltip']").tooltip("show"); });
+    </script>
+
+</body>
+</html>

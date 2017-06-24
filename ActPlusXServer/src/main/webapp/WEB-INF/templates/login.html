@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+<head>
+    <title>登录</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!--  Material Design fonts -->
+    <link rel="stylesheet" th:href="@{/css/Roboto.css}" type="text/css">
+    <link th:href="@{/css/MaterialIcons.css}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{/css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{/css/ripples.min.css}" rel="stylesheet">
+    <!-- Dropdown.js
+    <link th:href="@{//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css}" rel="stylesheet">-->
+    <!-- Page style -->
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <!-- 数据校验 -->
+    <script th:src="@{/js/signin.js}"></script>
+</head>
+<body>
+<div class="wrapper">
+    <img class="lazyload icon" th:src="@{/img/icon/lazyLoad.png}" th:data-img="@{/img/icon/logo.png}"></img>
+
+    <form method="post" th:action="@{ /login }" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name"><span class="necessary"></span></label>
+            <span class="showTips" id="nameTip"><i class="material-icons">error</i><span class="warningTips">格式有误</span></span>
+            <input name="username" required="required" maxlength="10" type="text" class="form-control" id="name" placeholder="用户名(仅限英文/数字)" onKeyUp="value=value.replace(/[^a-zA-Z0-9]/g,'')" onMouseOver="value=value.replace(/[^a-zA-Z0-9]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^a-zA-Z0-9]/g,''))">
+
+            <label for="password"><span class="necessary"></span></label>
+            <span class="showTips" id="passwordTip"><i class="material-icons">error</i><span class="warningTips">6~20位密码</span></span>
+            <input name="password" required="required" maxlength="20" type="password" class="form-control" id="password" placeholder="6~20位密码">
+        </div>
+
+        <div class="container">
+            <button id="submitButton" type="button" class="signin-btn btn btn-primary btn-lg btn-block">登 录</button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">登陆失败</h4>
+                        </div>
+                        <div class="modal-body">
+                            账号或密码错误，请重新输入。
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+    </form>
+    <a th:href="@{register.html}" class="quick-register">立即注册</a>
+    <a th:href="@{https://api.weibo.com/oauth2/authorize?client_id=2163998047&redirect_uri=http://actplus.sysuactivity.com/weiboLogin&response_type=code}" class="quick-register"><img src="http://timg.sjs.sinajs.cn/t4/appstyle/widget/images/loginButton/loginButton_24.png"></a>
+    <a th:href="@{/losspassword}" class="another-signin">忘记密码</a>
+</div>
+
+
+<script th:src="@{/js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+<!-- Bootstrap -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{/js/material.min.js}"></script>
+    <script th:src="@{/js/ripples.min.js}"></script>
+<script>
+        $.material.init();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>活动列表</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+    
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Page style -->
+    <link th:href="@{css/activity_lists.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+
+    <script th:src="@{js/index.js}"></script>
+    <!--百度统计-->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4ca3c2773341cdef5380810add802aa6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-fixed-top" role="navigation">
+            <a th:href="@{/index(schoolId=${ schoolId })}"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return.png}"></a>
+            <p class="navbar-text" th:text="|${ actType }活动列表|">活动列表</p>
+        </nav>
+
+        <div class="row wrapper">
+            <!--<div id="myCarousel" class="carousel slide">-->
+                <!-- 轮播（Carousel）指标 -->
+                <!--<ol class="carousel-indicators">-->
+                    <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                <!--</ol>-->
+                <!--&lt;!&ndash; 轮播（Carousel）项目 &ndash;&gt;-->
+                <!--<div class="carousel-inner">-->
+                    <!--<div class="item active">-->
+                        <!--<img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/pic1.jpg}" alt="First slide">-->
+                    <!--</div>-->
+                    <!--<div class="item">-->
+                        <!--<img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/pic2.jpg}" alt="Second slide">-->
+                    <!--</div>-->
+                    <!--<div class="item">-->
+                        <!--<img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/we.png}" alt="Third slide">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; 轮播（Carousel）导航 &ndash;&gt;-->
+                <!--<a class="carousel-control left" th:href="@{#myCarousel}"-->
+                   <!--data-slide="prev">&lsaquo;</a>-->
+                <!--<a class="carousel-control right" th:href="@{#myCarousel}"-->
+                   <!--data-slide="next">&rsaquo;</a>-->
+            <!--</div>-->
+
+        </div>
+
+        <div class="row hot-activity">
+            <div class="col-xs-12">
+
+                <div class="row" th:each="actMeta : ${ activityMetas }">
+                    <a class="thumbnail" th:href="@{activity_details(actId=${actMeta.actId})}">
+                        <!--判断是否有海报，没有就使用默认海报-->
+                        <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/defaultPoster.jpg}" th:if="${ actMeta.getPosterName() == null ||  actMeta.getPosterName() == ''}">
+                        <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{'imgBase/poster/' + ${ actMeta.posterName }}" th:if="${ actMeta.getPosterName() != '' && actMeta.getPosterName() != null}">
+
+                        <div class="mask">
+                            <p class="title"><span  th:text="${ actMeta.actName }">寒假招募 | 常回母校看看</span></p>
+                            <p class="type"><span th:text="${ actMeta.actType }">公益</span></p>
+                        </div>
+                        <div class="caption">
+                            <p><span class="sicon glyphicon glyphicon-time"></span><span class="hot-act-details" th:text="${ actMeta.actTime }"> 10月11日7:00</span></p>
+                            <p><span class="sicon glyphicon glyphicon-map-marker"></span><span class="hot-act-details" th:text="${ actMeta.actLoc }">公教楼D202</span></p>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+    <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+        $.material.init();
+    </script>
+    <script>
+        $('.carousel').carousel({  
+            interval: 3000  
+        }); 
+    </script>
+
+    <script th:src="@{js/hammer.js}"></script>
+    <script th:src="@{js/jquery.hammer.js}"></script>
+
+    <script>
+
+        $('#myCarousel').hammer().on('swipeleft', function(){
+
+        $(this).carousel('next');
+
+        });
+
+        $('#myCarousel').hammer().on('swiperight', function(){
+
+        $(this).carousel('prev');
+
+        });
+       
+    </script>
+
+</body>
+</html>

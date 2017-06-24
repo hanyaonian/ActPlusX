@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- dataSource -->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/actPlus" />
+        <property name="username" value="root" />
+        <property name="password" value="password" />
+    </bean>
+
+
+    <!-- 数据库保存的密码是使用MD5算法加密的，所以这里需要配置一个密码匹配对象 -->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <!--加密算法-->
+        <property name="hashAlgorithmName" value="md5"/>
+        <!--加密次数-->
+        <property name="hashIterations" value="1"/>
+    </bean>
+
+    <!--缓存管理 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"></bean>
+
+    <!-- Realm实现 -->
+    <bean id="userRealm" class="actPlus.web.realm.UserRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+    <!--
+      使用Shiro自带的JdbcRealm类
+      指定密码匹配所需要用到的加密对象
+      指定存储用户、角色、权限许可的数据源及相关查询语句
+     -->
+    <!--<bean id="jdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">-->
+        <!--<property name="permissionsLookupEnabled" value="true"></property>-->
+        <!--<property name="dataSource" ref="dataSource"></property>-->
+        <!--<property name="authenticationQuery"-->
+                  <!--value="SELECT password FROM User WHERE username = ?"></property>-->
+        <!--<property name="userRolesQuery"-->
+                  <!--value="SELECT role FROM User_Role LEFT JOIN Role USING(roleId) LEFT JOIN User USING(username) WHERE username = ?"></property>-->
+        <!--<property name="permissionsQuery"-->
+                  <!--value="SELECT permissionName FROM Role_Permission RP LEFT JOIN Permission P ON RP.permissionId = P.id LEFT JOIN Role R ON RP.roleId = R.roleId WHERE role = ?"></property>-->
+    <!--</bean>-->
+
+
+    <!-- 会话Cookie模板 -->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="sid"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="180000"/>
+    </bean>
+
+    <!-- Shiro安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!--自定义的realm-->
+        <property name="realm" ref="userRealm"/>
+        <!--默认的realm-->
+        <!--<property name="realm" ref="jdbcRealm"></property>-->
+        <property name="cacheManager" ref="cacheManager"></property>
+    </bean>
+
+
+    <!-- Shiro生命周期处理器-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!--配置oauth2.0 第三方登陆授权-->
+    <!--<bean id="oAuth2Realm" class="actPlus.web.oauth2.notUsed.OAuth2Realm">-->
+        <!--<property name="cachingEnabled" value="true"/>-->
+        <!--<property name="authenticationCachingEnabled" value="true"/>-->
+        <!--<property name="authenticationCacheName" value="authenticationCache"/>-->
+        <!--<property name="authorizationCachingEnabled" value="true"/>-->
+        <!--<property name="authorizationCacheName" value="authorizationCache"/>-->
+        <!--<property name="clientId" value="wx5c6b393a5f903113"/>-->
+        <!--<property name="clientSecret" value="5027bedea59a8b6d463241cae55db5c2"/>-->
+        <!--<property name="accessTokenUrl"-->
+                  <!--value="http://localhost:8080/chapter17-server/accessToken"/>-->
+        <!--<property name="userInfoUrl" value="http://localhost:8080/chapter17-server/userInfo"/>-->
+        <!--<property name="redirectUrl" value="youngdou.s1.natapp.cc:8080/oauth2-login"/>-->
+    <!--</bean>-->
+
+    <!--OAuth2AuthenticationFilter用于拦截服务端重定向回来的auth code-->
+    <!--<bean id="oAuth2AuthenticationFilter"-->
+          <!--class="com.github.zhangkaitao.shiro.chapter18.oauth2.OAuth2AuthenticationFilter">-->
+        <!--<property name="authcCodeParam" value="code"/>-->
+        <!--<property name="failureUrl" value="/oauth2Failure.jsp"/>-->
+    <!--</bean>-->
+
+    <!--
+    Shiro主过滤器
+ -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口，这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"></property>
+        <!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的""页面 -->
+        <property name="loginUrl" value="/login"></property>
+        <!-- 用户访问未对其授权的资源时，所显示的连接 -->
+        <property name="unauthorizedUrl" value="/index"></property>
+
+        <property name="successUrl" value="/"/>
+        <!--oauth拦截器-->
+        <!--<property name="filters">-->
+            <!--<util:map>-->
+                <!--<entry key="oauth2Authc" value-ref="oAuth2AuthenticationFilter"/>-->
+            <!--</util:map>-->
+        <!--</property>-->
+
+        <property name="filterChainDefinitions">
+            <value>
+                /publish = authc
+                /admin** = authc
+                /wxCollection = authc
+                /manage** = authc
+                /my** = authc
+                /audit = authc
+                /enroll = authc
+                /group_edit = authc
+                /group_success = authc
+                /personal_center** = authc
+            </value>
+        </property>
+    </bean>
+
+</beans>
+

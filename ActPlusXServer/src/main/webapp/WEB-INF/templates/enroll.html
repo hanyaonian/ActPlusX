@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>报名</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+    
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" th:href="@{css/Roboto.css}" type="text/css">
+    <link th:href="@{css/MaterialIcons.css}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Page style -->
+    <link th:href="@{css/signup.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+    <!-- 数据校验 -->
+    <script th:src="@{js/signup.js}"></script>
+    <script th:src="@{js/return_back.js}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <a href="#" class="return-back"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return2.png}"></a>
+        <p class="navbar-text"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/报名.png}">  报名</p>
+    </nav>
+    <div class="wrapper">
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModal2Label">发布失败</h4>
+                    </div>
+                    <div class="modal-body">
+                        输入有误，请检查。
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <form role="form" method="post" th:action="@{ /enroll(actId=${actId}) }" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/标题.png}">姓名<span class="necessary">*</span></label>
+                <span class="showTips" id="nameTip"><i class="material-icons">error</i><span class="warningTips">必须输入哦</span></span>
+                <input type="text" class="form-control" id="name" placeholder="您的真实姓名" name="partName">
+            </div>
+            <div class="form-group">
+                <label for="stuId"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/学号.png}">学号<span class="necessary">*</span></label>
+                <span class="showTips" id="stuTip"><i class="material-icons">error</i><span class="warningTips">格式有误</span></span>
+                <input type="text" class="form-control" id="stuId" placeholder="您的学号" name="stuId">
+            </div>
+            <div class="form-group">
+                <label for="email"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/邮箱.png}">邮箱<span class="necessary">*</span></label>
+                <span class="showTips" id="emailTip"><i class="material-icons">error</i><span class="warningTips">格式有误</span></span>
+                <input type="text" class="form-control" id="email" placeholder="您的邮箱" name="email">
+            </div>
+            <div class="form-group">
+                <label for="faculty"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/院系.png}">院系<span class="necessary">*</span></label>
+                <span class="showTips" id="facultyTip"><i class="material-icons">error</i><span class="warningTips">必须输入哦</span></span>
+                <input type="text" class="form-control" id="faculty" placeholder="例如：数据科学与计算机学院" name="academy">
+            </div>
+            <div class="form-group">
+                <label for="phone"><img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/手机号.png}">联系信息<span class="necessary">*</span></label>
+                <span class="showTips" id="phoneTip"><i class="material-icons">error</i><span class="warningTips">格式有误</span></span>
+                <input type="text" class="form-control" id="phone" placeholder="您的手机号码" name="phoneNum">
+            </div>
+
+            <!-- button的type本来应该是button，暂时改为submit看看效果 -->
+            <div class="container">
+                <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block">报名</button>
+            </div>
+        </form>
+    </div>
+
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+
+    <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    
+    <script>
+  $.material.init();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: activity details page
+    description: the html document
+-->
+<html>
+
+<head>
+    <title>定位</title>
+    <meta charset="utf-8">
+
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-responsive.css}" rel="stylesheet">
+
+
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+
+    <!-- Page style -->
+    <link th:href="@{css/position.css}" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <a th:href="@{ /index }"><img class="lazyload icon" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return.png}"></a>
+        <p class="navbar-text">请选择一个校区</p>
+    </nav>
+    <div class="wrapper panel panel-success">
+        <!--<div class="panel-heading">-->
+            <!--定位学校-->
+        <!--</div>-->
+        <!--<div class="panel-body">中山大学-东校区</div>-->
+        <div class="panel-heading">
+            已开通
+        </div>
+        <ul class="list-group">
+            <a th:href="@{ /index?schoolId=0 }"><li class="list-group-item">中山大学-东校区</li></a>
+            <a th:href="@{ /index?schoolId=1 }"><li class="list-group-item">中山大学-南校区</li></a>
+            <a th:href="@{ /index?schoolId=2 }"><li class="list-group-item">中山大学-北校区</li></a>
+            <a th:href="@{ /index?schoolId=3 }"><li class="list-group-item">中山大学-珠海校区</li></a>
+            <a th:href="@{ /index?schoolId=4 }"><li class="list-group-item">中山大学-全部校区</li></a>
+        </ul>
+    </div>
+
+
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+
+    <!-- Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+  $.material.init();
+    </script>
+
+
+</body>
+</html>

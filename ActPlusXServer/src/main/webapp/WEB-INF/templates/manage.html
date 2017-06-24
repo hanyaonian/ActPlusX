@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--
+    author: Xiaoyubei
+    section: home page
+    description: the html document
+-->
+<html lang="en">
+<head>
+    <title>活动管理</title>
+    <meta charset="utf-8">
+    <!-- 防止微信缓存 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+
+
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--<link href="css/bootstrap-responsive.css" rel="stylesheet">-->
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{css/bootstrap-material-design.min.css}" rel="stylesheet">
+    <link th:href="@{css/ripples.min.css}" rel="stylesheet">
+    <!-- Page style -->
+    <link href="css/manage.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script th:src="@{js/jquery-3.1.1.min.js}"></script>
+
+    <style type="text/css"></style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="info" href="#" data-toggle="modal" data-target="#myModal"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/return2.png}"></a>
+                    <p class="navbar-text">活动管理</p>
+                    <a class="map" href="/publish"><img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/加号.png}"></span></a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>确认退出管理员页面？</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <a th:href="@{ /index}"><button type="button" class="back-index manager btn btn-primary">确定</button></a>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+        <div class="row">
+        <div class="col-xs-12 panel panel-default manager-panel">
+            <div class="panel-heading">
+                <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{'imgBase/publisherIcon/'+${ puber.logo }}">
+                <div>
+                    <h1 th:text="${ puber.pubname }">中山大学体育社团</h1>
+                    <p>一分钟获取中大体育资讯，服务你我，共享成长。</p>
+                    <!--<span class="label label-warning">已认证</span>-->
+                    <span class="label label-info" th:text="${ school.schoolname }">中山大学</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <ul id="myTab" class="col-xs-12 nav nav-tabs">
+                <li class="active col-xs-4"><a class="running" href="#running" data-toggle="tab">进行中</a></li>
+                <li class="col-xs-4"><a class="testing" href="#testing" data-toggle="tab">审核中</a></li>
+                <li class="col-xs-4"><a class="over" href="#over" data-toggle="tab">已结束</a></li>
+            </ul>
+        </div>
+
+        <div id="myTabContent" class="tab-content">
+
+
+            <!--进行中-->
+            <div class="tab-pane fade in active" id="running" >
+                <div th:each="actMeta : ${actMetas}">
+                    <a th:href="@{manage_details?type=passAct(actId=${actMeta.actId})}">
+                        <div class="activity-panel panel panel-default">
+                            <div class="panel-heading">
+                                <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/原点.png}">
+                                <p th:text="|${#dates.format(actMeta.pubTime, 'yyyy年MM月dd日 HH:mm')}发布|">2016年11月25日22:00发布</p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <!--判断是否有海报，没有就使用默认海报-->
+                                        <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/defaultPoster.jpg}" th:if="${ actMeta.getPosterName() == null ||  actMeta.getPosterName() == ''}">
+                                        <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{'imgBase/poster/' + ${ actMeta.posterName }}" th:if="${ actMeta.getPosterName() != '' && actMeta.getPosterName() != null}">
+
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading" th:text="${ actMeta.actName }">定向越野 | 穿越中东</h4>
+                                        <p>时间：<span th:text="${ actMeta.actTime }">11:11</span></p>
+                                        <p>地点：<span th:text="${ actMeta.actLoc }">东校区</span></p>
+                                        <img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/箭头.png}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!--审核中-->
+            <div class="tab-pane fade" id="testing" >
+                <div th:each="auditAct : ${auditActs}">
+                    <a th:href="@{manage_details?type=auditAct(actId=${auditAct.actId})}">
+                        <div class="activity-panel panel panel-default">
+                            <div class="panel-heading">
+                                <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/原点.png}">
+                                <p th:text="|${#dates.format(auditAct.pubTime, 'yyyy年MM月dd日 HH:mm')}发布|">2016年11月25日22:00发布</p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <!--判断是否有海报，没有就使用默认海报-->
+                                        <img class="media-object lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/defaultPoster.jpg}" th:if="${ auditAct.getPosterName() == null ||  auditAct.getPosterName() == ''}">
+                                        <img class="media-object lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{'imgBase/poster/' + ${ auditAct.posterName }}" th:if="${ auditAct.getPosterName() != '' && auditAct.getPosterName() != null}">
+
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading" th:text="${ auditAct.actName }">定向越野 | 穿越中东</h4>
+                                        <p>时间：<span th:text="${ auditAct.actTime }">11:11</span></p>
+                                        <p>地点：<span th:text="${ auditAct.actLoc }">东校区</span></p>
+                                        <img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/箭头.png}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!--已过期-->
+            <div class="tab-pane fade" id="over" >
+                <div th:each="closedAct : ${closedActs}">
+                    <a th:href="@{manage_details?type=closedAct(actId=${closedAct.actId})}">
+                        <div class="activity-panel panel panel-default">
+                            <div class="panel-heading">
+                                <img class="lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/原点.png}">
+                                <p th:text="|${#dates.format(closedAct.pubTime, 'yyyy年MM月dd日 HH:mm')}发布|">2016年11月25日22:00发布</p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <!--判断是否有海报，没有就使用默认海报-->
+                                        <img class="media-object lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/img/defaultPoster.jpg}" th:if="${ closedAct.getPosterName() == null ||  closedAct.getPosterName() == ''}">
+                                        <img class="media-object lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{'imgBase/poster/' + ${ closedAct.posterName }}" th:if="${ closedAct.getPosterName() != '' && closedAct.getPosterName() != null}">
+
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading" th:text="${ closedAct.actName }">定向越野 | 穿越中东</h4>
+                                        <p>时间：<span th:text="${ closedAct.actTime }">11:11</span></p>
+                                        <p>地点：<span th:text="${ closedAct.actLoc }">东校区</span></p>
+                                        <img class="icon lazyload" th:src="@{img/icon/lazyLoad.png}" th:data-img="@{img/icon/箭头.png}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+           
+<script th:src="@{js/lazyLoad.js}"></script>
+<script>
+   $.imgLazyLoad();
+</script>
+    <!-- Twitter Bootstrap -->
+    <script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script th:src="@{js/material.min.js}"></script>
+    <script th:src="@{js/ripples.min.js}"></script>
+    <script>
+  $.material.init();
+    </script>
+</body>
+</html>
