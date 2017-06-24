@@ -8,13 +8,14 @@ import android.graphics.Bitmap;
 
 public class ActItem {
     private Bitmap image;
-    private String ActName, ActTime, ActPlace;
+    private String ActName, ActTime, ActPlace, ActPosterName;
     private int ActId;
-    public ActItem(String actName, String actTime, int actId, String actPlace) {
+    public ActItem(String actName, String actTime, int actId, String actPlace, String posterName) {
         ActName = actName;
         ActId = actId;
         ActTime = actTime;
         ActPlace = actPlace;
+        ActPosterName = posterName;
     }
     public void SetImage(Bitmap bitmap) {
         if (bitmap != null) {
@@ -31,4 +32,5 @@ public class ActItem {
     public String getTime() { return ActTime;}
     public String getTitle(){ return ActName;}
     public String getActPlace() {return ActPlace;}
+    public String getActPosterName() {return ActPosterName;}
 }

@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 /**
@@ -53,8 +55,8 @@ public class Myadpter extends BaseAdapter {
                     title_text.setText(actItem.getTitle());
                     place_text.setText(actItem.getActPlace());
                     //probably null
-                    if (actItem.getImage() != null) {
-                        poster.setImageBitmap(actItem.getImage());
+                    if (actItem.getActPosterName() != null) {
+                        Glide.with(appContext).load("http://actplus.sysuactivity.com/imgBase/poster/"+actItem.getActPosterName()).into(poster);
                     } else {
                         poster.setImageResource(R.drawable.person);
                     }
@@ -74,4 +76,5 @@ public class Myadpter extends BaseAdapter {
     public Object getItem(int position) {
         return listData.get(position);
     }
+
 }
